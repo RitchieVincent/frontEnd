@@ -1,0 +1,51 @@
+<ion-view view-title="Home">
+    <ion-content>
+        <div class="homeHeader">
+            <h1>Rivv</h1>
+        </div>
+        <div class="homeContent">
+            <form name="myForm">
+<!--
+                <div class="row">
+                    <div class="col col-33">
+                        <label>
+                            <input type="radio" ng-model="select.platform" value="ps4"> Playstation 4
+                        </label>
+                        <br/>
+                    </div>
+                    <div class="col col-33">
+                        <label>
+                            <input type="radio" ng-model="select.platform" value="xbox"> Xbox One
+                        </label>
+                        <br/>
+                    </div>
+                    <div class="col col-33">
+                        <label>
+                            <input type="radio" ng-model="select.platform" value="pc"> PC
+                        </label>
+                        <br/>
+                    </div>
+                </div>
+-->
+                <div class="row">
+                    <div class="col col-100">
+                        <div class="item-input-inset homeSearch">
+                            <label class="item-input-wrapper">
+                                <i class="icon ion-search placeholder-icon"></i>
+                                <input type="text" ng-model="search" placeholder="Search for a game">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-50 col-offset-25">
+                        <button class="button homeSearchBtn" type="submit" ng-click="update(search)">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div>The rating is: {{score}}</div>
+        </div>
+    </ion-content>
+</ion-view>

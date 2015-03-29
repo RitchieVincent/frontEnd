@@ -1,0 +1,5 @@
+{
+  "name": "rivv",
+  "app_id": "",
+  "gulpStartupTasks": ["sass", "watch"]
+}
