@@ -22,7 +22,7 @@ angular.module('rivv.controllers', [])
 
         $http(req).success(function (data) {
             $ionicLoading.hide()
-            $state.go('app.details');
+//            $state.go('app.details');
             $scope.score = data[0].score;
         }).error(function (err) {
             alert(err);
