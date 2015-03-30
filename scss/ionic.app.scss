@@ -21,22 +21,44 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,500);
+$bgColour: #E9EBEC;
+$primary : #27ae60;
+$secondary : #000000;
+
+@mixin headers($size) {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: $size;
+}
+@mixin content($size) {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: $size;
+}
+
+
+ion-content{
+    background-color: $bgColour;
+}
 
 .homeHeader {
     height: 30vh;
     width: 100%;
-    background-color: #000000;
+    background-color: $secondary;
     h1{
         color: #ffffff;
         text-align: center;
         padding-top: 10vh;
+        @include headers(3em);
     }
 }
 .homeContent{
     height: 63vh;
     width: 100%;
-    background-color: green;
+    background-color: $primary;
     padding-top: 20px;
+    @include content(1em);
     .item-radio{
         background-color: gold;
         border: none;
@@ -48,18 +70,20 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
         min-height: 40px;
         border-radius: 0;
         line-height: 40px;
-        background-color: #036703;
+        background-color: darken($primary, 10);
         border: none;
         color: #eeeeee;
+        @include content(1.1em);
     }
     .homeSearch{
         padding: 0;
         margin-top: 20px;
         .item-input-wrapper {
-            background-color: #036703;
+            background-color: darken($primary, 10);
         }
         input[type="text"]{
             color: #eeeeee;
+            @include content(1.1em);
         }
         input{
             height: 50px;
@@ -83,5 +107,36 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
             color:    #013C01;
         }
         ////////////////////////////////////////////////////
+    }
+}
+.detailsPage{
+    .detailsImg{
+        width: 100vw;
+        height: 20vh;
+        overflow: hidden;
+        img{
+            width: 100%;
+            margin-top: -50%;
+        }
+    }
+    circle {
+        stroke: $primary;
+        stroke-linecap: butt;
+    }
+    svg {
+        background-color: black;
+        border-radius: 80px;
+    }
+    .detailsScore {
+        h2{
+            color: #ffffff;
+            @include headers(4em);
+            margin: 0;
+        }
+        position: relative;
+        left: -75vw;
+        color: #ffffff;
+        top: 5vh;
+        text-align: center;
     }
 }

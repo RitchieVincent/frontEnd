@@ -1,4 +1,4 @@
-angular.module('rivv', ['ionic', 'rivv.controllers', 'ui.router'])
+angular.module('rivv', ['ionic', 'rivv.controllers', 'ui.router', 'angular-progress-arc'])
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -56,7 +56,7 @@ angular.module('rivv', ['ionic', 'rivv.controllers', 'ui.router'])
         views: {
             'menuContent': {
                 templateUrl: "templates/details.html",
-                controller: 'homeForm'
+                controller: 'detailsPage'
             }
         }
     })

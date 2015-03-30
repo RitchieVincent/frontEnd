@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,500);
 /*
 To customize the look and feel of Ionic, you can override the variables
 in ionic's _variables.scss file.
@@ -7603,6 +7604,9 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+ion-content {
+  background-color: #E9EBEC; }
+
 .homeHeader {
   height: 30vh;
   width: 100%;
@@ -7610,13 +7614,19 @@ a.button {
   .homeHeader h1 {
     color: #ffffff;
     text-align: center;
-    padding-top: 10vh; }
+    padding-top: 10vh;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 3em; }
 
 .homeContent {
   height: 63vh;
   width: 100%;
-  background-color: green;
-  padding-top: 20px; }
+  background-color: #27ae60;
+  padding-top: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 1em; }
   .homeContent .item-radio {
     background-color: gold;
     border: none;
@@ -7627,16 +7637,22 @@ a.button {
     min-height: 40px;
     border-radius: 0;
     line-height: 40px;
-    background-color: #036703;
+    background-color: #1e8449;
     border: none;
-    color: #eeeeee; }
+    color: #eeeeee;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.1em; }
   .homeContent .homeSearch {
     padding: 0;
     margin-top: 20px; }
     .homeContent .homeSearch .item-input-wrapper {
-      background-color: #036703; }
+      background-color: #1e8449; }
     .homeContent .homeSearch input[type="text"] {
-      color: #eeeeee; }
+      color: #eeeeee;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      font-size: 1.1em; }
     .homeContent .homeSearch input {
       height: 50px; }
     .homeContent .homeSearch .placeholder-icon {
@@ -7655,3 +7671,29 @@ a.button {
     .homeContent .homeSearch :-ms-input-placeholder {
       /* Internet Explorer 10+ */
       color: #013C01; }
+
+.detailsPage .detailsImg {
+  width: 100vw;
+  height: 20vh;
+  overflow: hidden; }
+  .detailsPage .detailsImg img {
+    width: 100%;
+    margin-top: -50%; }
+.detailsPage circle {
+  stroke: #27ae60;
+  stroke-linecap: butt; }
+.detailsPage svg {
+  background-color: black;
+  border-radius: 80px; }
+.detailsPage .detailsScore {
+  position: relative;
+  left: -75vw;
+  color: #ffffff;
+  top: 5vh;
+  text-align: center; }
+  .detailsPage .detailsScore h2 {
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 4em;
+    margin: 0; }
