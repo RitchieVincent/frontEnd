@@ -60,6 +60,16 @@ angular.module('rivv', ['ionic', 'rivv.controllers', 'ui.router', 'angular-progr
             }
         }
     })
+    
+        .state('app.gameList', {
+        url: "/gameList",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/gameList.html",
+                controller: 'gameListPage'
+            }
+        }
+    })
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/home');

@@ -7604,28 +7604,35 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.backdrop.visible {
+  display: block; }
+
 ion-content {
-  background-color: #E9EBEC; }
+  background-color: #FAFAFA; }
 
 .homeHeader {
   height: 30vh;
   width: 100%;
-  background-color: #000000; }
+  background-color: #303F9F; }
   .homeHeader h1 {
-    color: #ffffff;
+    color: #FF5252;
     text-align: center;
     padding-top: 10vh;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
-    font-size: 3em; }
+    font-size: 3em;
+    font-weight: 300; }
+
+.headerAccent {
+  color: #B8B8B8; }
 
 .homeContent {
-  height: 63vh;
+  height: 100vh;
   width: 100%;
-  background-color: #27ae60;
+  background-color: #3F51B5;
   padding-top: 20px;
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1em; }
   .homeContent .item-radio {
     background-color: gold;
@@ -7637,63 +7644,224 @@ ion-content {
     min-height: 40px;
     border-radius: 0;
     line-height: 40px;
-    background-color: #1e8449;
+    background-color: #FF5252;
     border: none;
-    color: #eeeeee;
+    color: #ffffff;
     font-family: 'Roboto', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1.1em; }
   .homeContent .homeSearch {
     padding: 0;
     margin-top: 20px; }
     .homeContent .homeSearch .item-input-wrapper {
-      background-color: #1e8449; }
+      background-color: #303F9F; }
     .homeContent .homeSearch input[type="text"] {
-      color: #eeeeee;
+      color: #ffffff;
       font-family: 'Roboto', sans-serif;
-      font-weight: 300;
-      font-size: 1.1em; }
+      font-weight: 400;
+      font-size: 1.1em;
+      font-weight: 300; }
     .homeContent .homeSearch input {
       height: 50px; }
     .homeContent .homeSearch .placeholder-icon {
-      color: #eeeeee; }
+      color: #ffffff; }
     .homeContent .homeSearch ::-webkit-input-placeholder {
       /* WebKit browsers */
-      color: #013C01; }
+      color: #B8B8B8;
+      font-weight: 300;
+      font-size: 0.9em; }
     .homeContent .homeSearch :-moz-placeholder {
       /* Mozilla Firefox 4 to 18 */
-      color: #013C01;
-      opacity: 1; }
+      color: #B8B8B8;
+      opacity: 1;
+      font-weight: 300;
+      font-size: 0.9em; }
     .homeContent .homeSearch ::-moz-placeholder {
       /* Mozilla Firefox 19+ */
-      color: #013C01;
-      opacity: 1; }
+      color: #B8B8B8;
+      opacity: 1;
+      font-weight: 300;
+      font-size: 0.9em; }
     .homeContent .homeSearch :-ms-input-placeholder {
       /* Internet Explorer 10+ */
-      color: #013C01; }
+      color: #B8B8B8;
+      font-weight: 300;
+      font-size: 0.9em; }
+  .homeContent .btn {
+    background-color: #FF5252; }
+  .homeContent .btn:disabled {
+    background-color: #FF8A80;
+    color: #C5CAE9; }
+  .homeContent .input-field .prefix ~ input, .homeContent .input-field .prefix ~ textarea {
+    border-bottom: 1px solid #B8B8B8; }
+  .homeContent input[type=text] + label {
+    color: #B8B8B8; }
+  .homeContent input[type=text]:focus {
+    box-shadow: none;
+    border-bottom: 1px solid #FF8A80; }
+  .homeContent .input-field input[type=text]:focus + label {
+    color: #FF8A80; }
+  .homeContent .input-field .prefix.active {
+    color: #FF8A80; }
+  .homeContent .prefix {
+    font-size: 1.5em;
+    line-height: 2.5em;
+    color: #B8B8B8; }
+  .homeContent .input-field input[type=text] {
+    box-shadow: none;
+    color: #ffffff; }
 
+.detailsPage .detailsContents {
+  position: relative;
+  top: -15vh; }
+  .detailsPage .detailsContents p {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1em; }
 .detailsPage .detailsImg {
   width: 100vw;
-  height: 20vh;
+  height: 30vh;
   overflow: hidden; }
   .detailsPage .detailsImg img {
     width: 100%;
     margin-top: -50%; }
 .detailsPage circle {
-  stroke: #27ae60;
+  stroke: #3F51B5;
   stroke-linecap: butt; }
 .detailsPage svg {
   background-color: black;
   border-radius: 80px; }
-.detailsPage .detailsScore {
+.detailsPage h1 {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 2.5em;
+  text-transform: uppercase;
+  margin: 0; }
+.detailsPage .scoreValue {
   position: relative;
   left: -75vw;
-  color: #ffffff;
+  color: #C5CAE9;
   top: 5vh;
   text-align: center; }
-  .detailsPage .detailsScore h2 {
-    color: #ffffff;
+  .detailsPage .scoreValue h2 {
+    color: #C5CAE9;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     font-size: 4em;
     margin: 0; }
+
+.helpPage {
+  text-align: center; }
+  .helpPage h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 3em;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    color: #3F51B5; }
+  .helpPage p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    text-transform: uppercase; }
+  .helpPage p + p {
+    margin-bottom: 60px; }
+
+.menuPage i {
+  color: #737373; }
+.menuPage .item-complex .item-content {
+  background-color: #FAFAFA; }
+.menuPage ion-content.menuPage.scroll-content.ionic-scroll.has-header {
+  background-color: #3F51B5; }
+.menuPage a {
+  color: #212121; }
+.menuPage .item-complex .item-content {
+  padding-bottom: 0;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0; }
+.menuPage .row {
+  margin-bottom: 0; }
+.menuPage .col-20 {
+  padding: 20px 0 20px 20px; }
+.menuPage .col-80 {
+  padding: 20px 0 20px 0; }
+
+.navBar {
+  background-color: #3F51B5;
+  color: #ffffff; }
+  .navBar h1 {
+    color: #FF5252; }
+
+.platform-android .bar .title {
+  font-weight: 400;
+  text-align: center;
+  font-size: 1.7em; }
+
+.bar-header {
+  border: none;
+  border-right: none; }
+
+.menu-content {
+  box-shadow: none; }
+
+.scroll-content {
+  border: none; }
+
+.bar .button.button-clear {
+  color: #ffffff;
+  border-radius: 50px; }
+
+.bar .title {
+  text-align: left; }
+
+.item-complex .item-content {
+  padding-bottom: 0; }
+
+.grade-b .menu-content {
+  left: 0;
+  border-left: none; }
+
+.gameListPlatforms {
+  display: inline-block;
+  padding-right: 8px; }
+
+.gameListPage .item-body h2 {
+  margin-bottom: 0; }
+.gameListPage .item-body p {
+  margin-top: 5px; }
+.gameListPage .card a {
+  margin-right: 0; }
+
+.gameListHeader {
+  height: 30vh;
+  width: 100%;
+  background-color: #303F9F; }
+  .gameListHeader h1 {
+    color: #FF5252;
+    text-align: center;
+    padding-top: 10vh;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 3em;
+    font-weight: 300; }
+
+.gameCount {
+  background-color: #C5CAE9;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 0px;
+  text-align: center;
+  color: #212121; }
+
+.cardLink .col.col-20 {
+  padding-right: 0;
+  font-size: 2.5em; }
+.cardLink .col.col-80 {
+  padding-left: 0px; }
+.cardLink .row {
+  margin-bottom: 0; }
+.cardLink .item-avatar {
+  padding-left: 0; }

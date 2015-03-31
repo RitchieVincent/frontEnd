@@ -1,0 +1,45 @@
+<ion-view view-title="">
+    <ion-content>
+        <div class="gameListHeader">
+            <h1>Game list</h1>
+        </div>
+        <div class="gameListPage">
+            <div class="row gameCount">
+                <div class="col col-80 col-offset-10">
+                    <ng-pluralize count="details.length" when="{'0': 'There are no games!',
+                                                               'one': 'There is 1 game.',
+                                                               'other': 'There are {} games matching that name. Please choose the game you wish to view.'}">
+                    </ng-pluralize>
+                </div>
+            </div>
+            <ion-list>
+                <ion-item ng-repeat="game in details" ng-if="game.score > 0">
+                    <div class="list card">
+                        <a href="" ng-click="test({{$index}})" class="cardLink">
+                            <div class="item item-avatar waves-effect waves">
+                                <div class="row">
+                                    <div class="col col-20">
+                                        <i class="ion-android-arrow-forward"></i>
+                                    </div>
+                                    <div class="col col-80">
+                                        <h2>{{game.title}}</h2>
+                                        <p>{{game.publisher}}</p>
+                                        <p>{{game.score}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="item item-body">
+                            <img class="full-image" src="{{game.thumb}}">
+                            <p>{{game.short_description}}</p>
+                            <h2>Platform(s):</h2>
+                            <div class="gameListPlatforms" ng-repeat="platform in game.platforms">
+                                <p>{{platform}}{{$last ? '' : ', '}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-view>

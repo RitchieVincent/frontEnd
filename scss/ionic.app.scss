@@ -22,9 +22,17 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,500);
-$bgColour: #E9EBEC;
-$primary : #27ae60;
-$secondary : #000000;
+$bgColour: #FAFAFA;
+$primary : #3F51B5;
+$primary2: #C5CAE9;
+$primary3: #303F9F;
+$secondary : #1B5E20;
+$iconsText: #737373;
+$text: #212121;
+$text2: #B8B8B8;
+$accentColour: #FF5252;
+$accentColour2: #FF8A80;
+
 
 @mixin headers($size) {
     font-family: 'Roboto', sans-serif;
@@ -33,10 +41,16 @@ $secondary : #000000;
 }
 @mixin content($size) {
     font-family: 'Roboto', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: $size;
 }
 
+//All pages/////////////////////////////////////
+.backdrop.visible {
+    display: block;
+}
+
+///////////////////////////////////////////////
 
 ion-content{
     background-color: $bgColour;
@@ -45,16 +59,20 @@ ion-content{
 .homeHeader {
     height: 30vh;
     width: 100%;
-    background-color: $secondary;
+    background-color: $primary3;
     h1{
-        color: #ffffff;
+        color: $accentColour;
         text-align: center;
         padding-top: 10vh;
         @include headers(3em);
+        font-weight: 300;
     }
 }
+.headerAccent{
+    color: $text2;
+}
 .homeContent{
-    height: 63vh;
+    height: 100vh;
     width: 100%;
     background-color: $primary;
     padding-top: 20px;
@@ -70,49 +88,98 @@ ion-content{
         min-height: 40px;
         border-radius: 0;
         line-height: 40px;
-        background-color: darken($primary, 10);
+        background-color: $accentColour;
         border: none;
-        color: #eeeeee;
+        color: #ffffff;
         @include content(1.1em);
     }
     .homeSearch{
         padding: 0;
         margin-top: 20px;
         .item-input-wrapper {
-            background-color: darken($primary, 10);
+            background-color: $primary3;
         }
         input[type="text"]{
-            color: #eeeeee;
+            color: #ffffff;
             @include content(1.1em);
+            font-weight: 300;
         }
         input{
             height: 50px;
         }
         .placeholder-icon{
-            color: #eeeeee;
+            color: #ffffff;
         }
         //Placeholder text colour///////////////////////////
         ::-webkit-input-placeholder { /* WebKit browsers */
-            color:    #013C01;
+            color:    $text2;
+            font-weight: 300;
+            font-size: 0.9em;
         }
         :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-            color:    #013C01;
+            color:    $text2;
             opacity:  1;
+            font-weight: 300;
+            font-size: 0.9em;
         }
         ::-moz-placeholder { /* Mozilla Firefox 19+ */
-            color:    #013C01;
+            color:    $text2;
             opacity:  1;
+            font-weight: 300;
+            font-size: 0.9em;
         }
         :-ms-input-placeholder { /* Internet Explorer 10+ */
-            color:    #013C01;
+            color:    $text2;
+            font-weight: 300;
+            font-size: 0.9em;
         }
         ////////////////////////////////////////////////////
     }
+    .btn{
+        background-color: $accentColour;
+    }
+    .btn:disabled{
+        background-color: $accentColour2;
+        color: $primary2;
+    }
+    .input-field .prefix ~ input, .input-field .prefix ~ textarea {
+        border-bottom: 1px solid $text2;
+    }
+    input[type=text]+label{
+        color: $text2;
+    }
+    input[type=text]:focus{
+        box-shadow: none;
+        border-bottom: 1px solid $accentColour2;
+    }
+    .input-field input[type=text]:focus+label{
+        color: $accentColour2;
+    }
+    .input-field .prefix.active{
+        color: $accentColour2;
+    }
+    .prefix{
+        font-size: 1.5em;
+        line-height: 2.5em;
+        color: $text2;
+    }
+    .input-field input[type=text]{
+        box-shadow: none;
+        color: #ffffff;
+    }
 }
 .detailsPage{
+    .detailsContents {
+        position: relative;
+        top: -15vh;
+        p{
+            text-align: center;
+            @include content(1em);
+        }
+    }
     .detailsImg{
         width: 100vw;
-        height: 20vh;
+        height: 30vh;
         overflow: hidden;
         img{
             width: 100%;
@@ -127,16 +194,170 @@ ion-content{
         background-color: black;
         border-radius: 80px;
     }
-    .detailsScore {
+    h1{
+        text-align: center;
+        @include headers(2.5em);
+        text-transform: uppercase;
+        margin: 0;
+
+    }
+    .scoreValue {
         h2{
-            color: #ffffff;
+            color: $primary2;
             @include headers(4em);
             margin: 0;
         }
         position: relative;
         left: -75vw;
-        color: #ffffff;
+        color: $primary2;
         top: 5vh;
         text-align: center;
     }
+    .detailsScore {
+
+    }
 }
+
+.helpPage{
+    text-align: center;
+    h1{
+        @include headers(3em);
+        margin-top: 30px;
+        margin-bottom: 50px;
+        color: $primary;
+    }
+    p{
+        @include content(1em);
+        text-transform: uppercase;
+    }
+    p + p{
+        margin-bottom: 60px;
+    }
+}
+.menuPage{
+    i{
+        color: $iconsText;
+    }
+    .item-complex .item-content {
+        background-color: $bgColour;
+    }
+    ion-content.menuPage.scroll-content.ionic-scroll.has-header {
+        background-color: $primary;
+    }
+    a{
+        color: $text;
+    }
+    .item-complex .item-content {
+        padding-bottom: 0;
+        padding-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .row{
+        margin-bottom: 0;
+    }
+    .col-20{
+        padding: 20px 0 20px 20px;
+    }
+    .col-80{
+        padding: 20px 0 20px 0;
+    }
+}
+//Navbar/////////////////////////////////////////
+.navBar{
+    background-color: $primary;
+    color: #ffffff;
+    h1{
+        color: $accentColour;
+    }
+}
+.platform-android .bar .title {
+    font-weight: 400;
+    text-align: center;
+    font-size: 1.7em;
+}
+.bar-header {
+    border: none;
+    border-right: none;
+}
+.menu-content{
+    box-shadow: none;
+}
+.scroll-content{
+    border: none;
+}
+.bar .button.button-clear{
+    color: #ffffff;
+    border-radius: 50px;
+}
+.bar .title{
+    text-align: left;
+}
+.item-complex .item-content {
+    padding-bottom: 0;
+}
+.grade-b .menu-content {
+    left: 0;
+    border-left: none;
+}
+////////////////////////////////////////////////
+//Game List Page////////////////////////////////
+
+.gameListPlatforms{
+    display: inline-block;
+    padding-right: 8px;
+}
+.gameListPage{
+    .item-body{
+        h2{
+            margin-bottom: 0;
+        }
+        p{
+            margin-top: 5px;
+        }
+    }
+    .card{
+        a{
+            margin-right: 0;
+        }
+    }
+}
+.gameListHeader{
+    height: 30vh;
+    width: 100%;
+    background-color: $primary3;
+    h1{
+        color: $accentColour;
+        text-align: center;
+        padding-top: 10vh;
+        @include headers(3em);
+        font-weight: 300;
+    }
+}
+.gameCount{
+    background-color: $primary2;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 0px;
+    text-align: center;
+    color: $text;
+}
+
+.cardLink{
+    .col.col-20 {
+        padding-right: 0;
+        font-size: 2.5em;
+    }
+    
+    .col.col-80 {
+        padding-left: 0px;
+    }
+    .row{
+        margin-bottom: 0;
+    }
+    .item-avatar{
+        padding-left: 0;
+    }
+}
+
+/////////////////////////////////////////////////

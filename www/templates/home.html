@@ -1,7 +1,7 @@
-<ion-view view-title="Home">
+<ion-view view-title="">
     <ion-content>
         <div class="homeHeader">
-            <h1>Rivv</h1>
+            <h1>Riv<span class="headerAccent">vu</span></h1>
         </div>
         <div class="homeContent">
             <form name="myForm">
@@ -28,19 +28,16 @@
                 </div>
 -->
                 <div class="row">
-                    <div class="col col-100">
-                        <div class="item-input-inset homeSearch">
-                            <label class="item-input-wrapper">
-                                <i class="icon ion-search placeholder-icon"></i>
-                                <input type="text" ng-model="search" placeholder="Search for a game">
-                            </label>
+                        <div class="input-field col s10">
+                            <i class="mdi-action-search prefix"></i>
+                            <input id="searchBox" type="text" ng-model="search" required>
+                            <label for="searchBox">Search for a game</label>
                         </div>
-                    </div>
                 </div>
                 <div class="row">
-                    <div class="col col-50 col-offset-25">
-                        <button class="button homeSearchBtn" type="submit" ng-click="update(search)">
-                            Search
+                    <div class="col col-33 col-offset-33">
+                        <button class="btn waves-effect waves-light" type="submit" ng-click="update(search)" ng-disabled="myForm.$invalid">Submit
+                            <i class="mdi-content-send right"></i>
                         </button>
                     </div>
                 </div>
