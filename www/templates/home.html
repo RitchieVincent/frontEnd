@@ -5,7 +5,7 @@
         </div>
         <div class="homeContent">
             <form name="myForm">
-<!--
+                <!--
                 <div class="row">
                     <div class="col col-33">
                         <label>
@@ -28,11 +28,11 @@
                 </div>
 -->
                 <div class="row">
-                        <div class="input-field col s10">
-                            <i class="mdi-action-search prefix"></i>
-                            <input id="searchBox" type="text" ng-model="search" required>
-                            <label for="searchBox">Search for a game</label>
-                        </div>
+                    <div class="input-field col s10">
+                        <i class="mdi-action-search prefix"></i>
+                        <input id="searchBox" type="text" ng-model="search" required>
+                        <label for="searchBox">Search for a game</label>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col col-33 col-offset-33">
@@ -42,6 +42,20 @@
                     </div>
                 </div>
             </form>
+            <div class="row">
+                <div class="input-field col s10">
+                    <i class="mdi-action-search prefix"></i>
+                    <input id="searchBox2" type="text" ng-model="search2" required>
+                    <label for="searchBox2">Search for a movie</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-33 col-offset-33">
+                    <button class="btn waves-effect waves-light" type="submit" ng-click="update2(search2)">Submit
+                        <i class="mdi-content-send right"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </ion-content>
 </ion-view>

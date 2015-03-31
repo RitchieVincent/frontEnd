@@ -7725,9 +7725,9 @@ ion-content {
   overflow: hidden; }
   .detailsPage .detailsImg img {
     width: 100%;
-    margin-top: -50%; }
+    margin-top: -30%; }
 .detailsPage circle {
-  stroke: #3F51B5;
+  stroke: #FF5252;
   stroke-linecap: butt; }
 .detailsPage svg {
   background-color: black;
@@ -7741,12 +7741,12 @@ ion-content {
   margin: 0; }
 .detailsPage .scoreValue {
   position: relative;
-  left: -75vw;
-  color: #C5CAE9;
+  left: -74vw;
+  color: #B8B8B8;
   top: 5vh;
   text-align: center; }
   .detailsPage .scoreValue h2 {
-    color: #C5CAE9;
+    color: #B8B8B8;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     font-size: 4em;
@@ -7865,3 +7865,29 @@ ion-content {
   margin-bottom: 0; }
 .cardLink .item-avatar {
   padding-left: 0; }
+
+.detailsContents .detailsScore {
+  padding-bottom: 0;
+  margin-bottom: 0; }
+.detailsContents .gameTitle {
+  background-color: #C5CAE9;
+  padding: 75px 0 20px 0;
+  margin-top: -65px; }
+  .detailsContents .gameTitle h1 {
+    font-weight: 300;
+    color: #212121; }
+
+.movieDetailsContents .detailsScore {
+  background-color: #303F9F;
+  padding: 40px 0 40px 0;
+  margin-bottom: 0px; }
+  .movieDetailsContents .detailsScore .scoreValue {
+    position: absolute;
+    top: 11vh;
+    left: -1vw; }
+.movieDetailsContents .movieTitle {
+  background-color: #C5CAE9;
+  padding: 20px 0 20px 0; }
+  .movieDetailsContents .movieTitle h1 {
+    font-weight: 300;
+    color: #212121; }

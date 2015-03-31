@@ -60,13 +60,23 @@ angular.module('rivv', ['ionic', 'rivv.controllers', 'ui.router', 'angular-progr
             }
         }
     })
-    
-        .state('app.gameList', {
+
+    .state('app.gameList', {
         url: "/gameList",
         views: {
             'menuContent': {
                 templateUrl: "templates/gameList.html",
                 controller: 'gameListPage'
+            }
+        }
+    })
+
+    .state('app.movieDetails', {
+        url: "/movieDetails",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/movieDetails.html",
+                controller: 'movieDetailsPage'
             }
         }
     })
