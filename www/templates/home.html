@@ -5,57 +5,49 @@
         </div>
         <div class="homeContent">
             <form name="myForm">
-                <!--
-                <div class="row">
-                    <div class="col col-33">
-                        <label>
-                            <input type="radio" ng-model="select.platform" value="ps4"> Playstation 4
-                        </label>
-                        <br/>
+                <div class="row homeRadios">
+                    <div class="col col-33 col-offset-10">
+                        <input name="platform" type="radio" id="gameRadio" value="game" ng-model="value"/>
+                        <label for="gameRadio">Games</label>
                     </div>
                     <div class="col col-33">
-                        <label>
-                            <input type="radio" ng-model="select.platform" value="xbox"> Xbox One
-                        </label>
-                        <br/>
-                    </div>
-                    <div class="col col-33">
-                        <label>
-                            <input type="radio" ng-model="select.platform" value="pc"> PC
-                        </label>
-                        <br/>
+                        <input name="platform" type="radio" id="movieRadio" value="movie" ng-model="value"/>
+                        <label for="movieRadio">Movies</label>
                     </div>
                 </div>
--->
-                <div class="row">
-                    <div class="input-field col s10">
-                        <i class="mdi-action-search prefix"></i>
-                        <input id="searchBox" type="text" ng-model="search" required>
-                        <label for="searchBox">Search for a game</label>
+                <div ng-show="value == 'game'">
+                    <div class="row">
+                        <div class="input-field col s10">
+                            <i class="mdi-action-search prefix"></i>
+                            <input id="searchBox" type="text" ng-model="search">
+                            <label for="searchBox">Search for a game</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-33 col-offset-33">
+                            <button class="btn waves-effect waves-light" type="submit" ng-click="update(search)" ng-disabled="!search">Submit
+                                <i class="mdi-content-send right"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col col-33 col-offset-33">
-                        <button class="btn waves-effect waves-light" type="submit" ng-click="update(search)" ng-disabled="myForm.$invalid">Submit
-                            <i class="mdi-content-send right"></i>
-                        </button>
+                <div ng-show="value == 'movie'">
+                    <div class="row">
+                        <div class="input-field col s10">
+                            <i class="mdi-action-search prefix"></i>
+                            <input id="searchBox2" type="text" ng-model="search2">
+                            <label for="searchBox2">Search for a movie</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-33 col-offset-33">
+                            <button class="btn waves-effect waves-light" type="submit" ng-click="update2(search2)" ng-disabled="!search2">Submit
+                                <i class="mdi-content-send right"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </form>
-            <div class="row">
-                <div class="input-field col s10">
-                    <i class="mdi-action-search prefix"></i>
-                    <input id="searchBox2" type="text" ng-model="search2" required>
-                    <label for="searchBox2">Search for a movie</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col col-33 col-offset-33">
-                    <button class="btn waves-effect waves-light" type="submit" ng-click="update2(search2)">Submit
-                        <i class="mdi-content-send right"></i>
-                    </button>
-                </div>
-            </div>
         </div>
     </ion-content>
 </ion-view>

@@ -41,6 +41,20 @@ $accentColour2: #FF8A80;
     font-weight: 400;
     font-size: $size;
 }
+@mixin paddingBlock(){
+    padding: 40px 0 40px 0;
+}
+@mixin headerBlock(){
+    @include paddingBlock();
+    background-color: $primary3;
+    h1 {
+        @include headers(3em);
+        color: $accentColour;
+        text-align: center;
+        font-weight: 300;
+    }
+}
+
 
 //All pages/////////////////////////////////////
 .backdrop.visible {
@@ -53,32 +67,34 @@ ion-content {
 }
 
 .homeHeader {
-    height: 30vh;
-    width: 100%;
-    background-color: $primary3;
-    h1 {
-        color: $accentColour;
-        text-align: center;
-        padding-top: 10vh;
-        @include headers(3em);
-        font-weight: 300;
-    }
+    @include headerBlock();
 }
 
 .headerAccent {
     color: $text2;
 }
-
+//Home page////////////////////////////////////
 .homeContent {
     height: 100vh;
     width: 100%;
     background-color: $primary;
-    padding-top: 20px;
     @include content(1em);
-    .item-radio {
-        background-color: gold;
-        border: none;
-        margin: 15px;
+    .homeRadios{
+        @include paddingBlock();
+        background-color: $primary2;
+        [type="radio"]:checked+label {
+            color: $accentColour;
+        }
+        [type="radio"]+label{
+            color: $text;
+        }
+        [type="radio"]:not(:checked)+label:before {
+            border: 2px solid $accentColour2;
+        }
+        [type="radio"]:checked+label:after {
+            border: 2px solid $accentColour;
+            background-color: $accentColour;
+        }
     }
     .homeSearchBtn {
         min-width: 100%;
@@ -168,14 +184,23 @@ ion-content {
     .prefix {
         font-size: 1.5em;
         line-height: 2.5em;
-        color: $text2;
+        color: $accentColour2;
     }
     .input-field input[type=text] {
         box-shadow: none;
         color: #ffffff;
     }
+    div.ng-hide-remove {
+        transition: 0.6s linear opacity;
+        opacity: 0;
+    }
+    div.ng-hide-remove-active {
+        opacity: 1;
+    }
 }
 
+/////////////////////////////////////////////////
+//Details page/////////////////////////////////////
 .detailsPage {
     .detailsContents {
         position: relative;
@@ -221,24 +246,27 @@ ion-content {
         text-align: center;
     }
 }
-
+//////////////////////////////////////////////////////
+//Help page//////////////////////////////////////////
 .helpPage {
-    text-align: center;
-    h1 {
-        @include headers(3em);
-        margin-top: 30px;
-        margin-bottom: 50px;
-        color: $primary;
+    
+    .helpHeader{
+        @include headerBlock();
     }
-    p {
-        @include content(1em);
-        text-transform: uppercase;
-    }
-    p + p {
-        margin-bottom: 60px;
+    .helpContents{
+        margin-top: 40px;
+        text-align: center;
+        p {
+            @include content(1em);
+            text-transform: uppercase;
+        }
+        p + p {
+            margin-bottom: 60px;
+        }
     }
 }
-
+/////////////////////////////////////////////////////
+//Menu/////////////////////////////////////////////
 .menuPage {
     i {
         color: $iconsText;
@@ -268,7 +296,7 @@ ion-content {
         padding: 20px 0 20px 0;
     }
 }
-
+//////////////////////////////////////////////////
 //Navbar/////////////////////////////////////////
 .navBar {
     background-color: $primary;
@@ -398,7 +426,7 @@ ion-content {
 .movieDetailsContents {
     .detailsScore {
         background-color: $primary3;
-        padding: 40px 0 40px 0;
+        @include paddingBlock();
         margin-bottom: 0px;
         .scoreValue{
             position: absolute;
@@ -417,3 +445,9 @@ ion-content {
 }
 
 ////////////////////////////////////////////////
+//Settings page////////////////////////////////
+.settingsPage{
+    .settingsHeader{
+        @include headerBlock();
+    }
+}

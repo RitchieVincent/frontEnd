@@ -1,6 +1,12 @@
 angular.module('rivv.controllers', [])
 
 
+    .controller('headController', function ($scope) {
+
+
+})
+
+
 .controller('homeForm', function ($scope, $ionicLoading, $state, task, task2) {
 
     $scope.update = function (search) {
