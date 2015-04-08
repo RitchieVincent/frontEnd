@@ -1,35 +1,11 @@
-/*
-To customize the look and feel of Ionic, you can override the variables
-in ionic's _variables.scss file.
-
-For example, you might change some of the default colors:
-
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
-$dark:                            #444 !default;
-*/
-
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+// Include different variables for different app themes
+@import "scss/variables1.scss";
+// Include the font
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,500);
-$bgColour: #FAFAFA;
-$primary: #3F51B5;
-$primary2: #C5CAE9;
-$primary3: #303F9F;
-$secondary: #1B5E20;
-$iconsText: #737373;
-$text: #212121;
-$text2: #B8B8B8;
-$accentColour: #FF5252;
-$accentColour2: #FF8A80;
 @mixin headers($size) {
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
@@ -41,10 +17,12 @@ $accentColour2: #FF8A80;
     font-weight: 400;
     font-size: $size;
 }
-@mixin paddingBlock(){
+
+@mixin paddingBlock() {
     padding: 40px 0 40px 0;
 }
-@mixin headerBlock(){
+
+@mixin headerBlock() {
     @include paddingBlock();
     background-color: $primary3;
     h1 {
@@ -54,7 +32,6 @@ $accentColour2: #FF8A80;
         font-weight: 300;
     }
 }
-
 
 //All pages/////////////////////////////////////
 .backdrop.visible {
@@ -73,19 +50,20 @@ ion-content {
 .headerAccent {
     color: $text2;
 }
+
 //Home page////////////////////////////////////
 .homeContent {
     height: 100vh;
     width: 100%;
     background-color: $primary;
     @include content(1em);
-    .homeRadios{
+    .homeRadios {
         @include paddingBlock();
         background-color: $primary2;
         [type="radio"]:checked+label {
             color: $accentColour;
         }
-        [type="radio"]+label{
+        [type="radio"]+label {
             color: $text;
         }
         [type="radio"]:not(:checked)+label:before {
@@ -200,14 +178,19 @@ ion-content {
 }
 
 /////////////////////////////////////////////////
-//Details page/////////////////////////////////////
+//Game Details page/////////////////////////////////////
 .detailsPage {
+    background-color: $primary3;
     .detailsContents {
         position: relative;
-        top: -15vh;
+        top: -100px;
         p {
             text-align: center;
             @include content(1em);
+        }
+        .detailsScore {
+            padding-bottom: 0;
+            margin-bottom: 0;
         }
     }
     .detailsImg {
@@ -226,6 +209,8 @@ ion-content {
     svg {
         background-color: black;
         border-radius: 80px;
+        display: block;
+        margin: 0 auto;
     }
     h1 {
         text-align: center;
@@ -240,20 +225,103 @@ ion-content {
             margin: 0;
         }
         position: relative;
-        left: -74vw;
         color: $text2;
-        top: 5vh;
+        top: -120px;
         text-align: center;
     }
+    .gameTitle{
+        background-color: $primary2;
+        @include paddingBlock();
+        margin-top: -160px;
+        h1 {
+            text-align: center;
+            @include headers(2.5em);
+            text-transform: uppercase;
+            margin: 0;
+            padding-top: 50px;
+        }
+    }
 }
+//Movie Details page/////////////////////////////
+.moviePage {
+    background-color: $primary3;
+    .movieDetailsContents {
+        position: relative;
+        top: -100px;
+        p {
+            text-align: center;
+            @include content(1em);
+        }
+        h3{
+            padding-left: 5vw;
+            color: $text2;
+            .movieRating{
+                color: $accentColour2;
+            }
+        }
+        .detailsScore {
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+    .movieImg {
+        width: 100vw;
+        height: 30vh;
+        overflow: hidden;
+        img {
+            width: 100%;
+            margin-top: -30%;
+        }
+    }
+    circle {
+        stroke: $accentColour;
+        stroke-linecap: butt;
+    }
+    svg {
+        background-color: black;
+        border-radius: 80px;
+        display: block;
+        margin: 0 auto;
+    }
+    h1 {
+        text-align: center;
+        @include headers(2.5em);
+        text-transform: uppercase;
+        margin: 0;
+    }
+    .scoreValue {
+        h2 {
+            color: $text2;
+            @include headers(4em);
+            margin: 0;
+        }
+        position: relative;
+        color: $text2;
+        top: -120px;
+        text-align: center;
+    }
+    .movieTitle{
+        background-color: $primary2;
+        @include paddingBlock();
+        margin-top: -160px;
+        h1 {
+            text-align: center;
+            @include headers(2.5em);
+            text-transform: uppercase;
+            margin: 0;
+            padding-top: 50px;
+        }
+    }
+}
+
+////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 //Help page//////////////////////////////////////////
 .helpPage {
-    
-    .helpHeader{
+    .helpHeader {
         @include headerBlock();
     }
-    .helpContents{
+    .helpContents {
         margin-top: 40px;
         text-align: center;
         p {
@@ -265,6 +333,7 @@ ion-content {
         }
     }
 }
+
 /////////////////////////////////////////////////////
 //Menu/////////////////////////////////////////////
 .menuPage {
@@ -296,6 +365,7 @@ ion-content {
         padding: 20px 0 20px 0;
     }
 }
+
 //////////////////////////////////////////////////
 //Navbar/////////////////////////////////////////
 .navBar {
@@ -344,29 +414,42 @@ ion-content {
 }
 
 ////////////////////////////////////////////////
-//Game List Page////////////////////////////////
+//Game/Movie List Page////////////////////////////////
 .gameListPlatforms {
     display: inline-block;
     padding-right: 8px;
 }
 
-.gameListPage {
+.gameListPage, .movieListPage {
+    background-color: $primary3;
     .item-body {
         h2 {
             margin-bottom: 0;
         }
         p {
             margin-top: 5px;
+            padding: 5px;
         }
     }
-    .card {
-        a {
-            margin-right: 0;
+    .item{
+        background-color: $primary;
+        a{
+            background-color: $bgColour;
+            margin-bottom: -10px;
+            margin-top: -10px;
         }
+        border: none;
     }
 }
 
-.gameListHeader {
+.card{
+    a{
+        margin-right: 0px;
+    }
+}
+
+.gameListHeader,
+.movieListHeader {
     height: 30vh;
     width: 100%;
     background-color: $primary3;
@@ -379,7 +462,8 @@ ion-content {
     }
 }
 
-.gameCount {
+.gameCount,
+.movieCount {
     background-color: $primary2;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -404,50 +488,10 @@ ion-content {
     }
 }
 
-.detailsContents{
-    .detailsScore {
-        padding-bottom: 0;
-        margin-bottom: 0;
-    }
-    .gameTitle{
-        background-color: $primary2;
-        padding: 75px 0 20px 0;
-        margin-top: -65px;
-        h1{
-            font-weight: 300;
-            color: $text;
-        }
-    }
-}
-
-
 /////////////////////////////////////////////////
-//Movie Details page/////////////////////////////
-.movieDetailsContents {
-    .detailsScore {
-        background-color: $primary3;
-        @include paddingBlock();
-        margin-bottom: 0px;
-        .scoreValue{
-            position: absolute;
-            top: 11vh;
-            left: -1vw;
-        }
-    }
-    .movieTitle{
-        background-color: $primary2;
-        padding: 20px 0 20px 0;
-        h1{
-            font-weight: 300;
-            color: $text;
-        }
-    }
-}
-
-////////////////////////////////////////////////
 //Settings page////////////////////////////////
-.settingsPage{
-    .settingsHeader{
+.settingsPage {
+    .settingsHeader {
         @include headerBlock();
     }
 }

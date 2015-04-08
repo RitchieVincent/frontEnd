@@ -1,21 +1,5 @@
 @charset "UTF-8";
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,500);
-/*
-To customize the look and feel of Ionic, you can override the variables
-in ionic's _variables.scss file.
-
-For example, you might change some of the default colors:
-
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
-$dark:                            #444 !default;
-*/
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -7721,46 +7705,128 @@ ion-content {
   .homeContent div.ng-hide-remove-active {
     opacity: 1; }
 
-.detailsPage .detailsContents {
-  position: relative;
-  top: -15vh; }
-  .detailsPage .detailsContents p {
+.detailsPage {
+  background-color: #303F9F; }
+  .detailsPage .detailsContents {
+    position: relative;
+    top: -100px; }
+    .detailsPage .detailsContents p {
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 1em; }
+    .detailsPage .detailsContents .detailsScore {
+      padding-bottom: 0;
+      margin-bottom: 0; }
+  .detailsPage .detailsImg {
+    width: 100vw;
+    height: 30vh;
+    overflow: hidden; }
+    .detailsPage .detailsImg img {
+      width: 100%;
+      margin-top: -30%; }
+  .detailsPage circle {
+    stroke: #FF5252;
+    stroke-linecap: butt; }
+  .detailsPage svg {
+    background-color: black;
+    border-radius: 80px;
+    display: block;
+    margin: 0 auto; }
+  .detailsPage h1 {
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 1em; }
-.detailsPage .detailsImg {
-  width: 100vw;
-  height: 30vh;
-  overflow: hidden; }
-  .detailsPage .detailsImg img {
-    width: 100%;
-    margin-top: -30%; }
-.detailsPage circle {
-  stroke: #FF5252;
-  stroke-linecap: butt; }
-.detailsPage svg {
-  background-color: black;
-  border-radius: 80px; }
-.detailsPage h1 {
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  font-size: 2.5em;
-  text-transform: uppercase;
-  margin: 0; }
-.detailsPage .scoreValue {
-  position: relative;
-  left: -74vw;
-  color: #B8B8B8;
-  top: 5vh;
-  text-align: center; }
-  .detailsPage .scoreValue h2 {
+    font-weight: 100;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    margin: 0; }
+  .detailsPage .scoreValue {
+    position: relative;
     color: #B8B8B8;
+    top: -120px;
+    text-align: center; }
+    .detailsPage .scoreValue h2 {
+      color: #B8B8B8;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 100;
+      font-size: 4em;
+      margin: 0; }
+  .detailsPage .gameTitle {
+    background-color: #C5CAE9;
+    padding: 40px 0 40px 0;
+    margin-top: -160px; }
+    .detailsPage .gameTitle h1 {
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 100;
+      font-size: 2.5em;
+      text-transform: uppercase;
+      margin: 0;
+      padding-top: 50px; }
+
+.moviePage {
+  background-color: #303F9F; }
+  .moviePage .movieDetailsContents {
+    position: relative;
+    top: -100px; }
+    .moviePage .movieDetailsContents p {
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 1em; }
+    .moviePage .movieDetailsContents h3 {
+      padding-left: 5vw;
+      color: #B8B8B8; }
+      .moviePage .movieDetailsContents h3 .movieRating {
+        color: #FF8A80; }
+    .moviePage .movieDetailsContents .detailsScore {
+      padding-bottom: 0;
+      margin-bottom: 0; }
+  .moviePage .movieImg {
+    width: 100vw;
+    height: 30vh;
+    overflow: hidden; }
+    .moviePage .movieImg img {
+      width: 100%;
+      margin-top: -30%; }
+  .moviePage circle {
+    stroke: #FF5252;
+    stroke-linecap: butt; }
+  .moviePage svg {
+    background-color: black;
+    border-radius: 80px;
+    display: block;
+    margin: 0 auto; }
+  .moviePage h1 {
+    text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
-    font-size: 4em;
+    font-size: 2.5em;
+    text-transform: uppercase;
     margin: 0; }
+  .moviePage .scoreValue {
+    position: relative;
+    color: #B8B8B8;
+    top: -120px;
+    text-align: center; }
+    .moviePage .scoreValue h2 {
+      color: #B8B8B8;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 100;
+      font-size: 4em;
+      margin: 0; }
+  .moviePage .movieTitle {
+    background-color: #C5CAE9;
+    padding: 40px 0 40px 0;
+    margin-top: -160px; }
+    .moviePage .movieTitle h1 {
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 100;
+      font-size: 2.5em;
+      text-transform: uppercase;
+      margin: 0;
+      padding-top: 50px; }
 
 .helpPage .helpHeader {
   padding: 40px 0 40px 0;
@@ -7842,18 +7908,29 @@ ion-content {
   display: inline-block;
   padding-right: 8px; }
 
-.gameListPage .item-body h2 {
-  margin-bottom: 0; }
-.gameListPage .item-body p {
-  margin-top: 5px; }
-.gameListPage .card a {
-  margin-right: 0; }
+.gameListPage, .movieListPage {
+  background-color: #303F9F; }
+  .gameListPage .item-body h2, .movieListPage .item-body h2 {
+    margin-bottom: 0; }
+  .gameListPage .item-body p, .movieListPage .item-body p {
+    margin-top: 5px;
+    padding: 5px; }
+  .gameListPage .item, .movieListPage .item {
+    background-color: #3F51B5;
+    border: none; }
+    .gameListPage .item a, .movieListPage .item a {
+      background-color: #FAFAFA;
+      margin-bottom: -10px;
+      margin-top: -10px; }
 
-.gameListHeader {
+.card a {
+  margin-right: 0px; }
+
+.gameListHeader, .movieListHeader {
   height: 30vh;
   width: 100%;
   background-color: #303F9F; }
-  .gameListHeader h1 {
+  .gameListHeader h1, .movieListHeader h1 {
     color: #FF5252;
     text-align: center;
     padding-top: 10vh;
@@ -7862,7 +7939,7 @@ ion-content {
     font-size: 3em;
     font-weight: 300; }
 
-.gameCount {
+.gameCount, .movieCount {
   background-color: #C5CAE9;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -7879,32 +7956,6 @@ ion-content {
   margin-bottom: 0; }
 .cardLink .item-avatar {
   padding-left: 0; }
-
-.detailsContents .detailsScore {
-  padding-bottom: 0;
-  margin-bottom: 0; }
-.detailsContents .gameTitle {
-  background-color: #C5CAE9;
-  padding: 75px 0 20px 0;
-  margin-top: -65px; }
-  .detailsContents .gameTitle h1 {
-    font-weight: 300;
-    color: #212121; }
-
-.movieDetailsContents .detailsScore {
-  background-color: #303F9F;
-  padding: 40px 0 40px 0;
-  margin-bottom: 0px; }
-  .movieDetailsContents .detailsScore .scoreValue {
-    position: absolute;
-    top: 11vh;
-    left: -1vw; }
-.movieDetailsContents .movieTitle {
-  background-color: #C5CAE9;
-  padding: 20px 0 20px 0; }
-  .movieDetailsContents .movieTitle h1 {
-    font-weight: 300;
-    color: #212121; }
 
 .settingsPage .settingsHeader {
   padding: 40px 0 40px 0;

@@ -1,7 +1,7 @@
 angular.module('rivv.controllers', [])
 
 
-    .controller('headController', function ($scope) {
+.controller('headController', function ($scope) {
 
 
 })
@@ -10,14 +10,11 @@ angular.module('rivv.controllers', [])
 .controller('homeForm', function ($scope, $ionicLoading, $state, task, task2) {
 
     $scope.update = function (search) {
-        //        alert(search);
-        //        alert($scope.select.platform);
         $ionicLoading.show({
             template: '<ion-spinner></ion-spinner>',
             animation: 'fade-in'
         })
         $scope.goGetScore(search);
-
     }
 
     $scope.update2 = function (search2) {
@@ -26,7 +23,6 @@ angular.module('rivv.controllers', [])
             animation: 'fade-in'
         })
         $scope.goGetScore2(search2);
-
     }
 
     $scope.goGetScore = function (search) {
@@ -45,7 +41,11 @@ angular.module('rivv.controllers', [])
     $scope.goGetScore2 = function (search2) {
         task2.getScore2(search2)
             .then(function (res) {
-                $state.go('app.movieDetails');
+                if (task2.details.length > 1) {
+                    $state.go('app.movieList');
+                } else {
+                    $state.go('app.movieDetails');
+                }
             }, function (err) {
                 alert("Error.");
             })
@@ -62,8 +62,8 @@ angular.module('rivv.controllers', [])
 })
 
 .controller('movieDetailsPage', function ($scope, $ionicLoading, $state, task2) {
-    $scope.movieDetails = task2.details;
-    $scope.movieTotalRating = $scope.movieDetails.imdbRating / 10 + $scope.movieDetails.Metascore / 100;
+    $scope.movieDetails = task2.details[0];
+    $scope.movieTotalRating = $scope.movieDetails.rating / 10 + $scope.movieDetails.metascore.substring(0, 2) / 100;
     $scope.movieTotalRating = $scope.movieTotalRating / 2;
 })
 
@@ -76,6 +76,22 @@ angular.module('rivv.controllers', [])
         task.getScore($scope.details[$index].title)
             .then(function (res) {
                 $state.go('app.details');
+                $ionicLoading.hide()
+            }, function (err) {
+                alert("Error.");
+            })
+    }
+})
+
+.controller('movieListPage', function ($scope, $ionicLoading, $state, task2) {
+    $scope.details = task2.details;
+    $scope.test = function ($index) {
+        $ionicLoading.show({
+            template: '<ion-spinner></ion-spinner>'
+        })
+        task2.getScore2($scope.details[$index].title)
+            .then(function (res) {
+                $state.go('app.movieDetails');
                 $ionicLoading.hide()
             }, function (err) {
                 alert("Error.");
@@ -115,8 +131,10 @@ angular.module('rivv.controllers', [])
 
     task2.getScore2 = function (search2) {
         var defer = $q.defer();
-
-        $http.get('http://www.omdbapi.com/?t=' + search2 + '&y=&plot=short&r=json', {
+        
+        $http.jsonp('http://www.myapifilms.com/imdb?title=' + search2 + '&format=JSONp&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=M&exactFilter=0&limit=10&forceYear=0&lang=en-gb&actors=N&biography=0&trailer=1&uniqueName=0&filmography=0&bornDied=0&starSign=0&actorActress=0&actorTrivia=0&movieTrivia=0&awards=0&moviePhotos=N&movieVideos=N&token=eb320b73-beba-4e4d-8322-4414b552adc1&similarMovies=0&callback=JSON_CALLBACK', {
+//        $http.jsonp('http://www.myapifilms.com/tmdb/searchMovie?movieName=' + search2 + '&format=JSONp&language=en&includeAdult=1&callback=JSON_CALLBACK',{
+        
             res: {}
         }).success(function (res) {
             $ionicLoading.hide()
