@@ -1,7 +1,7 @@
 <ion-view view-title="">
     <ion-content class="gameListPage">
         <div class="gameListHeader">
-            <h1>Game list</h1>
+            <h1>Game <span class="headerAccent">list</span></h1>
         </div>
             <div class="row gameCount">
                 <div class="col col-80 col-offset-10">
@@ -19,7 +19,6 @@
                             <h2>{{game.title}}</h2>
                             <p>Publisher: {{game.publisher}}</p>
                             <p>{{game.short_description}}</p>
-                            <p>Platforms:</p>
                             <div class="gameListPlatforms" ng-repeat="platform in game.platforms">
                                 <p>{{platform}}{{$last ? '' : ', '}}</p>
                             </div>

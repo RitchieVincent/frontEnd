@@ -1,7 +1,7 @@
 <ion-view view-title="">
     <ion-content class="movieListPage">
         <div class="movieListHeader">
-            <h1>Movie list</h1>
+            <h1>Movie <span class="headerAccent">list</span></h1>
         </div>
             <div class="row movieCount">
                 <div class="col col-80 col-offset-10">
@@ -19,6 +19,9 @@
                             <h2>{{movie.title}}</h2>
                             <p>{{movie.year}}</p>
                             <p>{{movie.simplePlot}}</p>
+                            <p>{{movie.urlPoster}}</p>
+                            <p>{{movie.rating}}</p>
+                            <p>{{movie.metascore}}</p>
                         </a>
                     </div>
                 </ion-item>

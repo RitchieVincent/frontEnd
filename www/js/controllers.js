@@ -1,8 +1,51 @@
 angular.module('rivv.controllers', [])
 
 
-.controller('headController', function ($scope) {
+.controller('mainController', function ($scope) {
+    $scope.css = window.localStorage['theme'] || 'blueRed';   
+})
 
+.controller('settingsController', function ($scope) {
+    $scope.css = window.localStorage['theme'] || 'blueRed';
+    $scope.themes = [
+        {
+            name: 'Blue/Green',
+            url: 'blueGreen'
+            },
+        {
+            name: 'Blue/Red',
+            url: 'blueRed'
+            },
+        {
+            name: 'Dark Purple/Pink',
+            url: 'dpurplePink'
+            },
+        {
+            name: 'Grey/Blue',
+            url: 'greyBlue'
+            },
+        {
+            name: 'Orange/Green',
+            url: 'orangeGreen'
+            },
+        {
+            name: 'Purple/Grey',
+            url: 'purpleGrey'
+            },
+        {
+            name: 'PurplePink',
+            url: 'purplePink'
+            },
+        {
+            name: 'Red/Blue',
+            url: 'redBlue'
+            }
+        ];
+
+    $scope.changeTheme = function () {
+        window.localStorage['theme'] = $scope.css;
+        var theme = window.localStorage['theme'] || 'blueRed';
+    };
 
 })
 
@@ -131,10 +174,8 @@ angular.module('rivv.controllers', [])
 
     task2.getScore2 = function (search2) {
         var defer = $q.defer();
-        
+
         $http.jsonp('http://www.myapifilms.com/imdb?title=' + search2 + '&format=JSONp&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=M&exactFilter=0&limit=10&forceYear=0&lang=en-gb&actors=N&biography=0&trailer=1&uniqueName=0&filmography=0&bornDied=0&starSign=0&actorActress=0&actorTrivia=0&movieTrivia=0&awards=0&moviePhotos=N&movieVideos=N&token=eb320b73-beba-4e4d-8322-4414b552adc1&similarMovies=0&callback=JSON_CALLBACK', {
-//        $http.jsonp('http://www.myapifilms.com/tmdb/searchMovie?movieName=' + search2 + '&format=JSONp&language=en&includeAdult=1&callback=JSON_CALLBACK',{
-        
             res: {}
         }).success(function (res) {
             $ionicLoading.hide()

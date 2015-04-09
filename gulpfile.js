@@ -14,9 +14,8 @@ var paths = {
 gulp.task('default', ['sass']);
 
 gulp.task('sass', function (done) {
-    gulp.src('./scss/ionic.app.scss')
+    gulp.src('./scss/blueGreen.scss')
         .pipe(sass())
-        .pipe(gulp.dest('./www/css/'))
         .pipe(minifyCss({
             keepSpecialComments: 0
         }))
@@ -24,6 +23,78 @@ gulp.task('sass', function (done) {
             extname: '.min.css'
         }))
         .pipe(gulp.dest('./www/css/'))
+    
+    gulp.src('./scss/blueRed.scss')
+        .pipe(sass())
+        .pipe(minifyCss({
+        keepSpecialComments: 0
+    }))
+        .pipe(rename({
+        extname: '.min.css'
+    }))
+        .pipe(gulp.dest('./www/css/'))
+
+    gulp.src('./scss/dpurplePink.scss')
+        .pipe(sass())
+        .pipe(minifyCss({
+        keepSpecialComments: 0
+    }))
+        .pipe(rename({
+        extname: '.min.css'
+    }))
+        .pipe(gulp.dest('./www/css/'))
+
+    gulp.src('./scss/greyBlue.scss')
+        .pipe(sass())
+        .pipe(minifyCss({
+        keepSpecialComments: 0
+    }))
+        .pipe(rename({
+        extname: '.min.css'
+    }))
+        .pipe(gulp.dest('./www/css/'))
+
+    gulp.src('./scss/orangeGreen.scss')
+        .pipe(sass())
+        .pipe(minifyCss({
+        keepSpecialComments: 0
+    }))
+        .pipe(rename({
+        extname: '.min.css'
+    }))
+        .pipe(gulp.dest('./www/css/'))
+
+    gulp.src('./scss/purpleGrey.scss')
+        .pipe(sass())
+        .pipe(minifyCss({
+        keepSpecialComments: 0
+    }))
+        .pipe(rename({
+        extname: '.min.css'
+    }))
+        .pipe(gulp.dest('./www/css/'))
+
+    gulp.src('./scss/purplePink.scss')
+        .pipe(sass())
+        .pipe(minifyCss({
+        keepSpecialComments: 0
+    }))
+        .pipe(rename({
+        extname: '.min.css'
+    }))
+        .pipe(gulp.dest('./www/css/'))
+
+    gulp.src('./scss/redBlue.scss')
+        .pipe(sass())
+        .pipe(minifyCss({
+        keepSpecialComments: 0
+    }))
+        .pipe(rename({
+        extname: '.min.css'
+    }))
+        .pipe(gulp.dest('./www/css/'))
+
+
 
     gulp.src('./scss/materialize.scss')
         .pipe(sass())
@@ -35,7 +106,8 @@ gulp.task('sass', function (done) {
             extname: '.min.css'
         }))
         .pipe(gulp.dest('./www/css/'))
-        .on('end', done);
+
+    .on('end', done);
 });
 
 gulp.task('watch', function () {

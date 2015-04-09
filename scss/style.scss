@@ -2,8 +2,7 @@
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
-// Include different variables for different app themes
-@import "scss/variables1.scss";
+
 // Include the font
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,500);
 @mixin headers($size) {
@@ -24,7 +23,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 @mixin headerBlock() {
     @include paddingBlock();
-    background-color: $primary3;
+    background-color: $primary;
     h1 {
         @include headers(3em);
         color: $accentColour;
@@ -33,8 +32,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     }
 }
 
+
 //All pages/////////////////////////////////////
 .backdrop.visible {
+    display: block;
+}
+select{
     display: block;
 }
 
@@ -48,14 +51,14 @@ ion-content {
 }
 
 .headerAccent {
-    color: $text2;
+    color: $iconsText;
 }
 
 //Home page////////////////////////////////////
 .homeContent {
     height: 100vh;
     width: 100%;
-    background-color: $primary;
+    background-color: $primary3;
     @include content(1em);
     .homeRadios {
         @include paddingBlock();
@@ -105,31 +108,31 @@ ion-content {
         //Placeholder text colour///////////////////////////
         ::-webkit-input-placeholder {
             /* WebKit browsers */
-            
-            color: $text2;
+
+            color: $iconsText;
             font-weight: 300;
             font-size: 0.9em;
         }
         :-moz-placeholder {
             /* Mozilla Firefox 4 to 18 */
-            
-            color: $text2;
+
+            color: $iconsText;
             opacity: 1;
             font-weight: 300;
             font-size: 0.9em;
         }
         ::-moz-placeholder {
             /* Mozilla Firefox 19+ */
-            
-            color: $text2;
+
+            color: $iconsText;
             opacity: 1;
             font-weight: 300;
             font-size: 0.9em;
         }
         :-ms-input-placeholder {
             /* Internet Explorer 10+ */
-            
-            color: $text2;
+
+            color: $iconsText;
             font-weight: 300;
             font-size: 0.9em;
         }
@@ -144,10 +147,11 @@ ion-content {
     }
     .input-field .prefix ~ input,
     .input-field .prefix ~ textarea {
-        border-bottom: 1px solid $text2;
+        border-bottom: 1px solid $dividerColour;
     }
     input[type=text]+label {
-        color: $text2;
+        color: $iconsText;
+        font-weight: 300;
     }
     input[type=text]:focus {
         box-shadow: none;
@@ -220,7 +224,7 @@ ion-content {
     }
     .scoreValue {
         h2 {
-            color: $text2;
+            color: $accentColour2;
             @include headers(4em);
             margin: 0;
         }
@@ -254,9 +258,10 @@ ion-content {
         }
         h3{
             padding-left: 5vw;
-            color: $text2;
+            color: $iconsText;
+            font-weight: 300;
             .movieRating{
-                color: $accentColour2;
+                color: $accentColour;
             }
         }
         .detailsScore {
@@ -291,12 +296,12 @@ ion-content {
     }
     .scoreValue {
         h2 {
-            color: $text2;
+            color: $accentColour2;
             @include headers(4em);
             margin: 0;
         }
         position: relative;
-        color: $text2;
+        color: $accentColour2;
         top: -120px;
         text-align: center;
     }
@@ -338,7 +343,7 @@ ion-content {
 //Menu/////////////////////////////////////////////
 .menuPage {
     i {
-        color: $iconsText;
+        color: $text2;
     }
     .item-complex .item-content {
         background-color: $bgColour;
@@ -401,7 +406,8 @@ ion-content {
 }
 
 .bar .title {
-    text-align: left;
+    text-align: center;
+    font-weight: 400;
 }
 
 .item-complex .item-content {
@@ -434,7 +440,7 @@ ion-content {
     .item{
         background-color: $primary;
         a{
-            background-color: $bgColour;
+            background-color: $primary2;
             margin-bottom: -10px;
             margin-top: -10px;
         }
@@ -450,16 +456,7 @@ ion-content {
 
 .gameListHeader,
 .movieListHeader {
-    height: 30vh;
-    width: 100%;
-    background-color: $primary3;
-    h1 {
-        color: $accentColour;
-        text-align: center;
-        padding-top: 10vh;
-        @include headers(3em);
-        font-weight: 300;
-    }
+    @include headerBlock();
 }
 
 .gameCount,
@@ -491,7 +488,29 @@ ion-content {
 /////////////////////////////////////////////////
 //Settings page////////////////////////////////
 .settingsPage {
+    background-color: $primary3;
     .settingsHeader {
         @include headerBlock();
+        margin-bottom: 20px;
+    }
+    h2{
+        font-weight: 300;
+        color: $iconsText;
+        padding-left: 20px;
+    }
+    .item-select{
+        height: 50px;
+        width: 50%;
+        margin: 0 auto;
+        border: none;
+        background-color: $accentColour;
+        select{
+            max-width: 100%;
+            background-color: $accentColour;
+            color: $iconsText;
+        }
+        option{
+            background-color: $accentColour2
+        }
     }
 }

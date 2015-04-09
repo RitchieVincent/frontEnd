@@ -5,19 +5,16 @@
         </div>
         <div class="settingsContent">
             <h2>Change theme:</h2>
-            <div class="col col-100">
-                <input name="theme" type="radio" id="blueorange" value="blueorange" ng-model="value"/>
-                <label for="blueorange">Blue/Orange</label>
+            <div ng-controller="settingsController">
+                <div class="list">
+                    <label class="item item-input item-select waves-effect waves-light">
+                        <select ng-change="changeTheme()" ng-model="css" ng-options="theme.url as theme.name for theme in themes"></select>
+                    </label>
+                </div>
+                <link ng-href="css/{{css}}.min.css" rel="stylesheet">
             </div>
-            <div class="col col-100">
-                <input name="theme" type="radio" id="blackgreen" value="blackgreen" ng-model="value"/>
-                <label for="blackgreen">Black/Green</label>
-            </div>
-            <div class="col col-100">
-                <input name="theme" type="radio" id="blackyellow" value="blackyellow" ng-model="value"/>
-                <label for="blackyellow">Black/Yellow</label>
-            </div>
-            
+
         </div>
+
     </ion-content>
 </ion-view>

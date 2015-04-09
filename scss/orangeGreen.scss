@@ -1,0 +1,12 @@
+$bgColour: #FAFAFA;
+$primary: #FF5722;
+$primary2: #FFCCBC;
+$primary3: #E64A19;
+$iconsText: #FFFFFF;
+$text: #212121;
+$text2: #727272;
+$accentColour: #4CAF50;
+$accentColour2: lighten($accentColour, 10);
+$dividerColour: #B6B6B6;
+
+@import "style.scss";
