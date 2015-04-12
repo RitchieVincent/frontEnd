@@ -1,7 +1,7 @@
-<ion-view view-title="">
+<ion-view view-title="Movie details">
     <ion-content class="moviePage">
         <div class="movieImg">
-            <img src="{{movieDetails.urlPoster}}">
+            <img src="{{movieDetails.Poster}}">
         </div>
         <div class="movieDetailsContents">
             <div class="row detailsScore">
@@ -16,12 +16,30 @@
             </div>
             <div class="row movieTitle">
                 <div class="col col-80 col-offset-10">
-                    <h1>{{movieDetails.title}}</h1>
+                    <h1>{{movieDetails.Title}}</h1>
+                    <p>{{movieDetails.Year}}</p>
                 </div>
             </div>
-            <h3>IMDB rating: <span class="movieRating">{{movieDetails.rating}}</span></h3>
-            <h3>Metascore: <span class="movieRating">{{movieDetails.metascore | limitTo:2}}</span></h3>
-            <p>Read more</p>
+            <div class="movieRatings">
+                <div class="col col-100">
+                    <h3>IMDB rating: <span class="movieRating">{{movieDetails.imdbRating}}/10</span></h3>
+                </div>
+                <div class="col col-100">
+                    <h3>Metascore: <span class="movieRating">{{movieDetails.Metascore}}/100</span></h3>
+                </div>
+                <div class="col col-100">
+                    <h3>Rotten Tomatoes rating: <span class="movieRating">{{movieDetails.tomatoMeter}}/100</span></h3>
+                </div>
+            </div>
+
+            <div class="readMoreSection">
+                <p><span class="readMoreTitle">Rated:</span> {{movieDetails.Rated}}</p>
+                <p><span class="readMoreTitle">Released:</span> {{movieDetails.Released}}</p>
+                <p><span class="readMoreTitle">Genre:</span> {{movieDetails.Genre}}</p>
+                <p><span class="readMoreTitle">Plot:</span> {{movieDetails.Plot}}</p>
+                <p><span class="readMoreTitle">Awards:</span> {{movieDetails.Awards}}</p>
+                <p><span class="readMoreTitle">Profit:</span> {{movieDetails.BoxOffice}}</p>
+            </div>
         </div>
     </ion-content>
 </ion-view>

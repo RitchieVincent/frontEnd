@@ -1,27 +1,29 @@
-angular.module('rivv', ['ionic', 'rivv.controllers', 'ui.router', 'angular-progress-arc'])
+angular.module('rivv', ['ionic', 'rivv.controllers', 'ui.router', 'angular-progress-arc', 'ngCordova'])
+    .run(function ($ionicPlatform, $cordovaStatusbar) {
+        $ionicPlatform.ready(function () {
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+            // for form inputs)
+            if (window.cordova && window.cordova.plugins.Keyboard) {
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            }
+            
+            if (StatusBar && statusbarTransparent) {
+                // Enable translucent statusbar
+                statusbarTransparent.enable();
 
-.run(function ($ionicPlatform) {
-    $ionicPlatform.ready(function () {
-        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-        // for form inputs)
-        if (window.cordova && window.cordova.plugins.Keyboard) {
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-        }
-        if (window.StatusBar) {
-            // org.apache.cordova.statusbar required
-            StatusBar.styleDefault();
-        }
-    });
-})
+                // Get the bar back
+                StatusBar.show();
+            }
+        });
+    })
 
 .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-
         .state('app', {
-        url: "/app",
-        abstract: true,
-        templateUrl: "templates/menu.html"
-    })
+            url: "/app",
+            abstract: true,
+            templateUrl: "templates/menu.html"
+        })
 
     .state('app.home', {
         url: "/home",
@@ -29,6 +31,16 @@ angular.module('rivv', ['ionic', 'rivv.controllers', 'ui.router', 'angular-progr
             'menuContent': {
                 templateUrl: "templates/home.html",
                 controller: 'homeForm'
+            }
+        }
+    })
+
+    .state('app.favourites', {
+        url: "/favourites",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/favourites.html",
+                controller: "favouritesController"
             }
         }
     })
@@ -51,12 +63,12 @@ angular.module('rivv', ['ionic', 'rivv.controllers', 'ui.router', 'angular-progr
         }
     })
 
-    .state('app.details', {
-        url: "/details",
+    .state('app.gameDetails', {
+        url: "/gameDetails",
         views: {
             'menuContent': {
-                templateUrl: "templates/details.html",
-                controller: 'detailsPage'
+                templateUrl: "templates/gameDetails.html",
+                controller: 'gameDetailsPage'
             }
         }
     })
@@ -80,8 +92,8 @@ angular.module('rivv', ['ionic', 'rivv.controllers', 'ui.router', 'angular-progr
             }
         }
     })
-    
-        .state('app.movieList', {
+
+    .state('app.movieList', {
         url: "/movieList",
         views: {
             'menuContent': {

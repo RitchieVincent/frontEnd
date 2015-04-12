@@ -1,0 +1,41 @@
+<ion-view view-title="Game details">
+    <ion-content class="gameDetailsPage">
+        <div class="gameDetailsImg">
+            <img src="{{gameDetails.thumb}}">
+        </div>
+        <div class="gameDetailsContents">
+            <div class="row gameDetailsScore">
+                <div class="col col-50 col-offset-25">
+                    <progress-arc size="150" stroke="black" stroke-width="10" complete="gameDetails.score / 10" counter-clockwise="false" background="" class="scoreChart">
+                    </progress-arc>
+                    <div class="scoreValue">
+                        <h2>{{gameDetails.score}}</h2>
+                        <p>/10</p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row gameTitle">
+                <div class="col col-80 col-offset-10">
+                    <h1>{{gameDetails.title}}</h1>
+                    <button class="btn waves-effect waves-light" type="submit" ng-click="saveFavourite()" >
+                        Favourite
+                        <i class="ion-android-star"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="readMoreSection">
+                <p><span class="readMoreTitle">Publisher:</span> {{gameDetails.publisher}}</p>
+                <p><span class="readMoreTitle">Description:</span> {{gameDetails.short_description}}</p>
+                <span class="readMoreTitle">Platforms:</span>
+                <div class="gameListPlatforms" ng-repeat="platform in gameDetails.platforms">
+                    <p> {{platform}}{{$last ? '' : ', '}}</p>
+                </div>
+                <div ng-controller="MapController">
+                    <div id="map-canvas" data-tap-disabled="true"></div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

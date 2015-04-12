@@ -1,27 +1,19 @@
-<ion-view view-title="">
+<ion-view view-title="Movie list">
     <ion-content class="movieListPage">
-        <div class="movieListHeader">
-            <h1>Movie <span class="headerAccent">list</span></h1>
-        </div>
             <div class="row movieCount">
                 <div class="col col-80 col-offset-10">
-                    <ng-pluralize count="details.length" when="{'0': 'There are no movies!',
-                                                               'one': 'There is 1 movie.',
-                                                               'other': 'More than one movie matches that title. Please select which movie you want to see details for!'}">
+                    <ng-pluralize count="details.length" when="{'0': 'There are no movies matching that name!',
+                                                               'one': 'There is 1 match!',
+                                                               'other': 'There are {} movies matching that title. Please select which movie you want to see details for!'}">
                     </ng-pluralize>
                 </div>
             </div>
             <ion-list>
-                <ion-item ng-repeat="movie in details" ng-if="movie.rating > 0 && movie.metascore != '' ">
+                <ion-item ng-repeat="movie in details">
                     <div class="list">
-                        <a class="item item-thumbnail-left waves-effect waves" href="#" ng-click="test({{$index}})">
-                            <img src="{{movie.urlPoster}}">
-                            <h2>{{movie.title}}</h2>
-                            <p>{{movie.year}}</p>
-                            <p>{{movie.simplePlot}}</p>
-                            <p>{{movie.urlPoster}}</p>
-                            <p>{{movie.rating}}</p>
-                            <p>{{movie.metascore}}</p>
+                        <a class="item waves-effect waves" href="#" ng-click="test(movie.imdbID)">
+                            <h2><span class="listTitle">{{movie.Title}}</span></h2>
+                            <p>{{movie.Year}}</p>
                         </a>
                     </div>
                 </ion-item>

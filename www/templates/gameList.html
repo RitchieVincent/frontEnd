@@ -1,8 +1,5 @@
-<ion-view view-title="">
+<ion-view view-title="Game list">
     <ion-content class="gameListPage">
-        <div class="gameListHeader">
-            <h1>Game <span class="headerAccent">list</span></h1>
-        </div>
             <div class="row gameCount">
                 <div class="col col-80 col-offset-10">
                     <ng-pluralize count="details.length" when="{'0': 'There are no games!',
@@ -16,7 +13,7 @@
                     <div class="list">
                         <a class="item item-thumbnail-left waves-effect waves" href="#" ng-click="test({{$index}})">
                             <img src="{{game.thumb}}">
-                            <h2>{{game.title}}</h2>
+                            <h2><span class="listTitle">{{game.title}}</span></h2>
                             <p>Publisher: {{game.publisher}}</p>
                             <p>{{game.short_description}}</p>
                             <div class="gameListPlatforms" ng-repeat="platform in game.platforms">

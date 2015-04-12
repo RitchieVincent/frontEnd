@@ -1,0 +1,69 @@
+<ion-view view-title="Favourites">
+    <ion-content class="favouritesPage">
+        <div class="favouritesContent">
+            <div class="row">
+                <div class="col col-100">
+                    <p>Below are a list of your favourites that you have saved.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-100">
+<!--
+                    <div class="list">
+                        <div class="item item-divider item-icon-right">
+                            <i class="icon ion-ios-game-controller-b favSecIcon"></i>
+                            Games
+                        </div>
+                        <a class="item" href="#">
+                            Butterfinger
+                        </a>
+                        <a class="item" href="#">
+                            Butterfinger
+                        </a>
+                        <a class="item" href="#">
+                            Butterfinger
+                        </a>
+                        <a class="item" href="#">
+                            Butterfinger
+                        </a>
+                        <a class="item" href="#">
+                            Butterfinger
+                        </a>
+                        <div class="item item-divider item-icon-right">
+                            <i class="icon ion-android-film favSecIcon"></i>
+                            Movies
+                        </div>
+                        <a class="item" href="#">
+                            Butterfinger
+                        </a>
+                        <a class="item" href="#">
+                            Butterfinger
+                        </a>
+                        <a class="item" href="#">
+                            Butterfinger
+                        </a>
+                        <a class="item" href="#">
+                            Butterfinger
+                        </a>
+                    </div>
+-->
+                    <ion-list>
+                        <ion-item ng-repeat="gameFavourite in gameFavourites">
+                            <div class="list">
+                                <div class="item item-divider item-icon-right">
+                                    <i class="icon ion-ios-game-controller-b favSecIcon"></i>
+                                    Games
+                                </div>
+                                <span class="item item-thumbnail-left" href="#">
+                                    <img src="{{gameFavourite.gameImage}}">
+                                    <h2>{{gameFavourite.gameTitle}}</h2>
+                                    <p>{{gameFavourite.gameScore}}</p>
+                                </span>
+                            </div>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
