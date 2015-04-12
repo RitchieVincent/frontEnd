@@ -4,8 +4,39 @@ angular.module('rivv.controllers', [])
     $scope.css = window.localStorage['theme'] || 'blueRed';
 })
 
-.controller('favouritesController', function ($scope) {
+.controller('favouritesController', function ($scope, $cordovaToast, $window) {
     $scope.gameFavourites = (JSON.parse(localStorage.getItem('gameFavourites')));
+    $scope.movieFavourites = (JSON.parse(localStorage.getItem('movieFavourites')));
+
+    $scope.deleteGame = function (game) {
+        var gameFavourites = (JSON.parse(localStorage.getItem('gameFavourites')));
+
+        for (var i = 0; i < gameFavourites.length; i++) {
+            if (gameFavourites[i].gameImage === game) {
+                gameFavourites.splice(i, 1);
+            }
+        }
+        $scope.showToast('Game removed from favourites.', 'long', 'center');
+        localStorage.gameFavourites = JSON.stringify(gameFavourites);
+        $window.location.reload(true);
+    };
+    
+    $scope.deleteMovie = function (movie) {
+        var movieFavourites = (JSON.parse(localStorage.getItem('movieFavourites')));
+
+        for (var i = 0; i < movieFavourites.length; i++) {
+            if (movieFavourites[i].movieImage === movie) {
+                movieFavourites.splice(i, 1);
+            }
+        }
+        $scope.showToast('Movie removed from favourites.', 'long', 'center');
+        localStorage.movieFavourites = JSON.stringify(movieFavourites);
+        $window.location.reload(true);
+    };
+
+    $scope.showToast = function (message, duration, location) {
+        $cordovaToast.show(message, duration, location);
+    };
 })
 
 .controller('settingsController', function ($scope) {
@@ -94,8 +125,9 @@ angular.module('rivv.controllers', [])
     }
 })
 
-.controller('gameDetailsPage', function ($scope, $ionicLoading, $state, task) {
+    .controller('gameDetailsPage', function ($scope, $ionicLoading, $state, task, $cordovaToast, $window) {
     $scope.gameDetails = task.details[0];
+
     $scope.saveFavourite = function () {
         var addItem = function (img, title, score) {
             var oldItems = JSON.parse(localStorage.getItem('gameFavourites')) || [];
@@ -112,13 +144,45 @@ angular.module('rivv.controllers', [])
         };
 
         addItem('' + $scope.gameDetails.thumb + '', '' + $scope.gameDetails.title + '', '' + $scope.gameDetails.score + '');
+        
+        $scope.showToast('Game added to favourites!', 'long', 'center');
+        $state.go('app.favourites');
+        $window.location.reload(true);
     }
+    $scope.showToast = function (message, duration, location) {
+        $cordovaToast.show(message, duration, location);
+    };
 })
 
-.controller('movieDetailsPage', function ($scope, $ionicLoading, $state, task3) {
+    .controller('movieDetailsPage', function ($scope, $ionicLoading, $state, task3, $cordovaToast, $window) {
     $scope.movieDetails = task3.details;
     $scope.movieTotalRating = $scope.movieDetails.imdbRating / 10 + $scope.movieDetails.Metascore / 100 + $scope.movieDetails.tomatoMeter / 100;
     $scope.movieTotalRating = $scope.movieTotalRating / 3;
+
+    $scope.saveFavourite = function () {
+        var addItem = function (img, title, score) {
+            var oldItems = JSON.parse(localStorage.getItem('movieFavourites')) || [];
+
+            var newItem = {
+                'movieImage': img,
+                'movieTitle': title,
+                'movieScore': score
+            };
+
+            oldItems.push(newItem);
+
+            localStorage.setItem('movieFavourites', JSON.stringify(oldItems));
+        };
+
+        addItem('' + $scope.movieDetails.Poster + '', '' + $scope.movieDetails.Title + '', '' + $scope.movieTotalRating * 10 + '');
+        
+        $scope.showToast('Movie added to favourites!', 'long', 'center');
+        $state.go('app.favourites');
+        $window.location.reload(true);
+    }
+    $scope.showToast = function (message, duration, location) {
+        $cordovaToast.show(message, duration, location);
+    };
 })
 
 .controller('gameListPage', function ($scope, $ionicLoading, $state, task) {

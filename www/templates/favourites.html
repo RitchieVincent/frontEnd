@@ -3,67 +3,35 @@
         <div class="favouritesContent">
             <div class="row">
                 <div class="col col-100">
-                    <p>Below are a list of your favourites that you have saved.</p>
+                    <h1>Below are a list of your favourites that you have saved.</h1>
                 </div>
             </div>
-            <div class="row">
-                <div class="col col-100">
-<!--
-                    <div class="list">
-                        <div class="item item-divider item-icon-right">
-                            <i class="icon ion-ios-game-controller-b favSecIcon"></i>
-                            Games
-                        </div>
-                        <a class="item" href="#">
-                            Butterfinger
-                        </a>
-                        <a class="item" href="#">
-                            Butterfinger
-                        </a>
-                        <a class="item" href="#">
-                            Butterfinger
-                        </a>
-                        <a class="item" href="#">
-                            Butterfinger
-                        </a>
-                        <a class="item" href="#">
-                            Butterfinger
-                        </a>
-                        <div class="item item-divider item-icon-right">
-                            <i class="icon ion-android-film favSecIcon"></i>
-                            Movies
-                        </div>
-                        <a class="item" href="#">
-                            Butterfinger
-                        </a>
-                        <a class="item" href="#">
-                            Butterfinger
-                        </a>
-                        <a class="item" href="#">
-                            Butterfinger
-                        </a>
-                        <a class="item" href="#">
-                            Butterfinger
-                        </a>
+            <ion-item>
+                <div class="list">
+                    <div class="item item-divider item-icon-right">
+                        <i class="icon ion-ios-game-controller-b favSecIcon"></i> Games
                     </div>
--->
-                    <ion-list>
-                        <ion-item ng-repeat="gameFavourite in gameFavourites">
-                            <div class="list">
-                                <div class="item item-divider item-icon-right">
-                                    <i class="icon ion-ios-game-controller-b favSecIcon"></i>
-                                    Games
-                                </div>
-                                <span class="item item-thumbnail-left" href="#">
-                                    <img src="{{gameFavourite.gameImage}}">
-                                    <h2>{{gameFavourite.gameTitle}}</h2>
-                                    <p>{{gameFavourite.gameScore}}</p>
-                                </span>
-                            </div>
-                        </ion-item>
-                    </ion-list>
+                    <span class="item item-thumbnail-left" ng-repeat="gameFavourite in gameFavourites">
+                        <img src="{{gameFavourite.gameImage}}">
+                        <i class="icon ion-android-delete item-icon-right favDelete" ng-model="gameFavourite.gameImage" ng-click="deleteGame(gameFavourite.gameImage)"></i>
+                        <h2>{{gameFavourite.gameTitle}}</h2>
+                        <p>{{gameFavourite.gameScore}}</p>
+                    </span>
                 </div>
-            </div>
+            </ion-item>
+            <ion-item>
+                <div class="list">
+                    <div class="item item-divider item-icon-right">
+                        <i class="icon ion-android-film favSecIcon"></i> Movies
+                    </div>
+                    <span class="item item-thumbnail-left" ng-repeat="movieFavourite in movieFavourites">
+                        <img src="{{movieFavourite.movieImage}}">
+                        <i class="icon ion-android-delete item-icon-right favDelete" ng-model="movieFavourite.movieImage" ng-click="deleteMovie(movieFavourite.movieImage)"></i>
+                        <h2>{{movieFavourite.movieTitle}}</h2>
+                        <p>{{movieFavourite.movieScore | number:1}}</p>
+                    </span>
+                </div>
+            </ion-item>
         </div>
     </ion-content>
 </ion-view>

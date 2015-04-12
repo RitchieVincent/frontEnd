@@ -561,14 +561,37 @@ ion-header-bar.navBar.bar.bar-header.disable-user-behavior {
 //Favourites page////////////////////////////////
 .favouritesPage {
     @include pageDefault();
+    h1{
+        font-size: 1.5em;
+        font-weight: 400;
+        
+    }
     .favSecIcon{
         color: $accentColour;
     }
+    .favDelete{
+        color: $primary;
+        transition: 0.3s linear all;
+        font-size: 2em;
+        float: right;
+        padding-right: 0;
+        &:hover{
+            color: red;
+        }
+    }
     .item{
         color: $text2;
+        h2{
+            font-size: 1.2em;
+        }
+        p{
+            color: $primary;
+        }
+     
     }
     .item-divider{
         color: $text;
+
     }
 }
 /////////////////////////////////////////////////
