@@ -1,21 +1,16 @@
 <ion-view view-title="Favourites">
     <ion-content class="favouritesPage">
         <div class="favouritesContent">
-            <div class="row">
-                <div class="col col-100">
-                    <h1>Below are a list of your favourites that you have saved.</h1>
-                </div>
-            </div>
             <ion-item>
                 <div class="list">
                     <div class="item item-divider item-icon-right">
                         <i class="icon ion-ios-game-controller-b favSecIcon"></i> Games
                     </div>
                     <span class="item item-thumbnail-left" ng-repeat="gameFavourite in gameFavourites">
-                        <img src="{{gameFavourite.gameImage}}">
-                        <i class="icon ion-android-delete item-icon-right favDelete" ng-model="gameFavourite.gameImage" ng-click="deleteGame(gameFavourite.gameImage)"></i>
+                        <img src="{{gameFavourite.gameImage}}" alt="" class="circle">
+                        <i class="icon ion-android-delete item-icon-right favDelete waves-effect waves-circle waves" ng-model="gameFavourite.gameImage" ng-click="deleteGame(gameFavourite.gameImage)"></i>
                         <h2>{{gameFavourite.gameTitle}}</h2>
-                        <p>{{gameFavourite.gameScore}}</p>
+                        <p>Rating: {{gameFavourite.gameScore}}</p>
                     </span>
                 </div>
             </ion-item>
@@ -25,10 +20,10 @@
                         <i class="icon ion-android-film favSecIcon"></i> Movies
                     </div>
                     <span class="item item-thumbnail-left" ng-repeat="movieFavourite in movieFavourites">
-                        <img src="{{movieFavourite.movieImage}}">
-                        <i class="icon ion-android-delete item-icon-right favDelete" ng-model="movieFavourite.movieImage" ng-click="deleteMovie(movieFavourite.movieImage)"></i>
+                        <img src="{{movieFavourite.movieImage}}" alt="" class="circle">
+                        <i class="icon ion-android-delete item-icon-right favDelete waves-effect waves-circle waves" ng-model="movieFavourite.movieImage" ng-click="deleteMovie(movieFavourite.movieImage)"></i>
                         <h2>{{movieFavourite.movieTitle}}</h2>
-                        <p>{{movieFavourite.movieScore | number:1}}</p>
+                        <p>Rating: {{movieFavourite.movieScore | number:1}}</p>
                     </span>
                 </div>
             </ion-item>

@@ -2,22 +2,25 @@
     <ion-content scroll="false">
         <div class="homeHeader">
             <h1>Riv<span class="headerAccent">vu</span></h1>
+            <div class="col col-100">
+                <i class="ion-ios-game-controller-b"></i><i class="ion-android-film"></i>
+            </div>
         </div>
         <div class="homeContent">
-            <form name="myForm">
+            <form>
                 <div class="row homeRadios">
                     <div class="col col-33 col-offset-10">
-                        <input name="platform" type="radio" id="gameRadio" value="game" ng-model="value"/>
+                        <input name="platform" type="radio" id="gameRadio" value="game" ng-model="value" class="with-gap"/>
                         <label for="gameRadio">Games</label>
                     </div>
                     <div class="col col-33">
-                        <input name="platform" type="radio" id="movieRadio" value="movie" ng-model="value"/>
+                        <input name="platform" type="radio" id="movieRadio" value="movie" ng-model="value" class="with-gap"/>
                         <label for="movieRadio">Movies</label>
                     </div>
                 </div>
                 <div ng-show="value == 'game'">
                     <div class="row">
-                        <div class="input-field col s10">
+                        <div class="input-field col col-90">
                             <i class="mdi-action-search prefix"></i>
                             <input id="searchBox" type="text" ng-model="search">
                             <label for="searchBox">Search for a game</label>
@@ -31,9 +34,11 @@
                         </div>
                     </div>
                 </div>
+            </form>
+            <form>
                 <div ng-show="value == 'movie'">
                     <div class="row">
-                        <div class="input-field col s10">
+                        <div class="input-field col col-90">
                             <i class="mdi-action-search prefix"></i>
                             <input id="searchBox2" type="text" ng-model="search2">
                             <label for="searchBox2">Search for a movie</label>

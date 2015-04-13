@@ -2,7 +2,6 @@
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
-
 // Include the font
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,500);
 @mixin headers($size) {
@@ -31,57 +30,43 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
         font-weight: 300;
     }
 }
-@mixin pageDefault(){
+
+@mixin pageDefault() {
     background-color: $bgColour;
     color: $text;
-    padding-top: 40px;
+    padding-top: 80px;
 }
-
 
 //All/More than one pages/////////////////////////////////////
 .backdrop.visible {
     display: block;
+    border-radius: 0;
 }
-select{
+
+select {
     display: block;
 }
+
 ion-content {
     background-color: $bgColour;
 }
 
-.platform-android.has-translucent-status-bar ion-header-bar.navBar.bar.bar-header.disable-user-behavior  {
-    padding-top: 25px;
-    height: 70px;
-    box-shadow: none;
-    border: none;
-}
-
-ion-content.scroll-content.ionic-scroll.has-header {
-    border-top: none;
-    box-shadow: none;
-}
-
-.scroll-content{
-    padding-top: 0;
-}
-.bar {
-    background-size: 0;
-}
-
 .btn {
     background-color: $accentColour;
-    padding-left: 20px;
-    padding-right: 15px;
+    padding-left: 30px;
+    padding-right: 25px;
+    height: 45px;
     display: block;
     margin: 0 auto;
-    &:hover{
+    &:hover {
         background-color: $accentColour2;
     }
 }
+
 .btn:disabled {
     background-color: $accentColour2;
     color: $accentColour2;
-    &:hover{
+    &:hover {
         background-color: $accentColour2;
         color: $accentColour2;
     }
@@ -97,16 +82,12 @@ ion-content.scroll-content.ionic-scroll.has-header {
     opacity: 1;
     padding: 40px;
     background: $bgColour;
-    p{
+    p {
         @include content(1em);
     }
-    .readMoreTitle{
+    .readMoreTitle {
         color: $accentColour;
     }
-}
-
-.scroll {
-    height: 100%;
 }
 
 #map-canvas {
@@ -128,6 +109,7 @@ ion-content.scroll-content.ionic-scroll.has-header {
         }
         [type="radio"]+label {
             color: $text;
+            line-height: 1.4em;
         }
         [type="radio"]:not(:checked)+label:before {
             border: 2px solid $accentColour2;
@@ -135,6 +117,9 @@ ion-content.scroll-content.ionic-scroll.has-header {
         [type="radio"]:checked+label:after {
             border: 2px solid $accentColour;
             background-color: $accentColour;
+        }
+        [type="radio"].with-gap:checked+label:before {
+            border: 2px solid $accentColour;
         }
     }
     .homeSearchBtn {
@@ -162,7 +147,6 @@ ion-content.scroll-content.ionic-scroll.has-header {
             height: 50px;
         }
     }
-    
     .input-field .prefix ~ input,
     .input-field .prefix ~ textarea {
         border-bottom: 1px solid $dividerColour;
@@ -170,6 +154,8 @@ ion-content.scroll-content.ionic-scroll.has-header {
     input[type=text]+label {
         color: $text2;
         font-weight: 300;
+        font-size: 1em;
+        line-height: 0.7em;
     }
     input[type=text]:focus {
         box-shadow: none;
@@ -177,14 +163,17 @@ ion-content.scroll-content.ionic-scroll.has-header {
     }
     .input-field input[type=text]:focus+label {
         color: $accentColour2;
+        font-size: 0.7em;
+        line-height: 2em;
     }
     .input-field .prefix.active {
         color: $accentColour2;
     }
     .prefix {
-        font-size: 1.5em;
-        line-height: 2.5em;
-        color: $accentColour2;
+        font-size: 2em;
+        line-height: 1.2em;
+        color: $text2;
+        left: 30px;
     }
     .input-field input[type=text] {
         box-shadow: none;
@@ -198,12 +187,23 @@ ion-content.scroll-content.ionic-scroll.has-header {
         opacity: 1;
     }
 }
+
 .homeHeader {
     @include headerBlock();
+    text-align: center;
+    i{
+        color: $accentColour;
+        font-size: 2em;
+        padding: 5px;
+        text-shadow: 2px 2px $primary3;
+    }
 }
 
 .headerAccent {
     color: $iconsText;
+}
+.hide{
+    display: none;
 }
 
 /////////////////////////////////////////////////
@@ -214,10 +214,10 @@ ion-content.scroll-content.ionic-scroll.has-header {
     .scoreValue {
         h2 {
             color: $accentColour;
-            @include headers(4em);
+            @include headers(3em);
             margin: 0;
         }
-        p{
+        p {
             text-align: center !important;
         }
         position: relative;
@@ -235,6 +235,7 @@ ion-content.scroll-content.ionic-scroll.has-header {
         .gameDetailsScore {
             padding-bottom: 0;
             margin-bottom: 0;
+            height: 15vh;
         }
     }
     .gameDetailsImg {
@@ -243,7 +244,7 @@ ion-content.scroll-content.ionic-scroll.has-header {
         overflow: hidden;
         img {
             width: 100%;
-            margin-top: -30%;
+            margin-top: 0;
         }
     }
     circle {
@@ -262,21 +263,20 @@ ion-content.scroll-content.ionic-scroll.has-header {
         text-transform: uppercase;
         margin: 0;
     }
-    .gameTitle{
+    .gameTitle {
         background-color: $primary3;
         @include paddingBlock();
-        margin-top: -160px;
         h1 {
             text-align: center;
             @include headers(2.5em);
             font-weight: 300;
             color: $iconsText;
             text-transform: uppercase;
-            margin: 0;
-            padding-top: 25px
+            padding: 20px 0 15px 0;
         }
     }
 }
+
 //Movie Details page/////////////////////////////
 .moviePage {
     @include pageDefault();
@@ -287,16 +287,16 @@ ion-content.scroll-content.ionic-scroll.has-header {
         p {
             @include content(1em);
         }
-        h3{
+        h3 {
             color: $iconsText;
             font-weight: 300;
             font-size: 1.3em;
-            .movieRating{
+            .movieRating {
                 color: $accentColour;
                 font-weight: 400;
             }
         }
-        .movieRatings{
+        .movieRatings {
             padding: 40px;
             background-color: $primary;
         }
@@ -336,7 +336,7 @@ ion-content.scroll-content.ionic-scroll.has-header {
             @include headers(4em);
             margin: 0;
         }
-        p{
+        p {
             text-align: center !important;
         }
         position: relative;
@@ -344,7 +344,7 @@ ion-content.scroll-content.ionic-scroll.has-header {
         top: -120px;
         text-align: center;
     }
-    .movieTitle{
+    .movieTitle {
         background-color: $primary3;
         @include paddingBlock();
         margin-top: -160px;
@@ -358,7 +358,7 @@ ion-content.scroll-content.ionic-scroll.has-header {
             margin: 0;
             padding-top: 25px
         }
-        p{
+        p {
             text-align: center;
         }
     }
@@ -367,8 +367,11 @@ ion-content.scroll-content.ionic-scroll.has-header {
 //////////////////////////////////////////////////////
 //Menu/////////////////////////////////////////////
 .menuPage {
+    line-height: 2.5em;
+    font-weight: 500;
     i {
-        color: $accentColour;
+        color: $text2;
+        font-size: 1.5em;
     }
     .item-complex .item-content {
         background-color: $bgColour;
@@ -385,13 +388,21 @@ ion-content.scroll-content.ionic-scroll.has-header {
         padding-left: 0;
         padding-right: 0;
     }
+    .item {
+        border: none;
+        font-size: 14px;
+        margin-top: -30px;
+    }
+    .list {
+        margin-top: 30px;
+    }
     .row {
         margin-bottom: 0;
     }
-    .col-20 {
+    .col-25 {
         padding: 20px 0 20px 20px;
     }
-    .col-80 {
+    .col-75 {
         padding: 20px 0 20px 0;
     }
 }
@@ -405,14 +416,20 @@ ion-content.scroll-content.ionic-scroll.has-header {
         color: $accentColour;
     }
 }
+
 .menu .scroll-content {
-    padding-top: 25px;
+    padding-top: 45px;
+    border-right: 1px solid $dividerColour;
 }
 
 .platform-android .bar .title {
     font-weight: 400;
-    text-align: center;
-    font-size: 1.7em;
+    text-align: left;
+    font-size: 1.4em;
+    padding-left: 0;
+    padding-top: 3px;
+    line-height: 1.5em;
+    position: relative;
 }
 
 .bar-header {
@@ -427,18 +444,24 @@ ion-content.scroll-content.ionic-scroll.has-header {
 .scroll-content {
     border: none;
 }
-.bar .button.button-clear{
+
+.bar .button.button-clear {
     color: $iconsText;
 }
+
 .bar .button.back-button {
     color: $primary;
+    font-size: 1em;
 }
-.button-icon{
+
+.button-icon {
     color: $iconsText;
     border-radius: 50px;
     font-size: 2em;
 }
-
+.moreBtn {
+    margin-top: 33px;
+}
 
 .bar .title {
     font-weight: 400;
@@ -457,10 +480,32 @@ ion-content.scroll-content.ionic-scroll.has-header {
     left: 0;
     border-left: none;
 }
+
 ion-header-bar.navBar.bar.bar-header.disable-user-behavior {
     height: 60px;
     padding: 12px;
 }
+
+.platform-android.has-translucent-status-bar ion-header-bar.navBar.bar.bar-header.disable-user-behavior {
+    padding-top: 37px;
+    height: 90px;
+    box-shadow: none;
+    border: none;
+}
+
+ion-content.scroll-content.ionic-scroll.has-header {
+    border-top: none;
+    box-shadow: none;
+}
+
+.scroll-content {
+    padding-top: 0;
+}
+
+.bar {
+    background-size: 0;
+}
+
 ////////////////////////////////////////////////
 //Game/Movie List Page////////////////////////////////
 .gameListPlatforms {
@@ -468,7 +513,8 @@ ion-header-bar.navBar.bar.bar-header.disable-user-behavior {
     padding-right: 8px;
 }
 
-.gameListPage, .movieListPage {
+.gameListPage,
+.movieListPage {
     @include pageDefault();
     padding-top: 0;
     .item-body {
@@ -480,12 +526,12 @@ ion-header-bar.navBar.bar.bar-header.disable-user-behavior {
             padding: 5px;
         }
     }
-    .listTitle{
+    .listTitle {
         color: $accentColour;
     }
-    .item{
+    .item {
         background-color: $bgColour;
-        a{
+        a {
             background-color: darken($bgColour, 5);
             margin-bottom: -10px;
             margin-top: -10px;
@@ -494,8 +540,8 @@ ion-header-bar.navBar.bar.bar-header.disable-user-behavior {
     }
 }
 
-.card{
-    a{
+.card {
+    a {
         margin-right: 0px;
     }
 }
@@ -503,7 +549,7 @@ ion-header-bar.navBar.bar.bar-header.disable-user-behavior {
 .gameCount,
 .movieCount {
     background-color: $primary2;
-    padding-top: 50px;
+    padding-top: 80px;
     padding-bottom: 30px;
     margin-bottom: 0px;
     text-align: center;
@@ -530,70 +576,129 @@ ion-header-bar.navBar.bar.bar-header.disable-user-behavior {
 //Settings page////////////////////////////////
 .settingsPage {
     @include pageDefault();
-    .settingsContent{
-        height: 300px;
-        h2{
+    .settingsContent {
+        h2 {
             font-weight: 300;
         }
-        p{
-            line-height: 50px;
-            float: right;
+        p {
+            line-height: 1.5em;
             @include content(1.5em);
         }
+        .row {
+            margin-bottom: 0;
+        }
     }
-    .item-select{
-        height: 50px;
-        width: 100%;
-        float: left;
+    .item-select {
+        height: 60px;
         border: none;
         background-color: $accentColour;
-        select{
-            max-width: 100%;
+        select {
             background-color: $accentColour;
             color: $iconsText;
+            min-width: 100%;
         }
-        option{
+        option {
             background-color: $accentColour2
         }
     }
 }
+
 /////////////////////////////////////////////////
 //Favourites page////////////////////////////////
 .favouritesPage {
     @include pageDefault();
-    h1{
+    padding-top: 50px;
+    h1 {
         font-size: 1.5em;
         font-weight: 400;
-        
     }
-    .favSecIcon{
+    .favSecIcon {
         color: $accentColour;
     }
-    .favDelete{
-        color: $primary;
-        transition: 0.3s linear all;
-        font-size: 2em;
+    .favDelete {
+        color: $dividerColour;
+        font-size: 1.5em;
         float: right;
         padding-right: 0;
-        &:hover{
-            color: red;
-        }
+        width: 1.5em;
+        height: 1.5em;
+        line-height: 1.5em;
+        margin-right: -15px;
     }
-    .item{
-        color: $text2;
-        h2{
-            font-size: 1.2em;
-        }
-        p{
-            color: $primary;
-        }
-     
-    }
-    .item-divider{
+    .item {
         color: $text;
-
+        border: none;
+        background-color: $bgColour;
+        h2 {
+            font-size: 1em;
+        }
+        p {
+            color: $dividerColour;
+        }
+    }
+    .item-thumbnail-left>img:first-child{
+        max-height: 65px;
+        max-width: 65px;
+    }
+    .item-divider {
+        color: $text;
+        background-color: darken($bgColour, 2);
+        margin-bottom: 25px;
+        padding: 15px;
     }
 }
+
+.favouritePopup {
+    .popup-head{
+        padding: 0;
+        border: none;
+    }
+    .popup-body {
+        overflow: hidden;
+        @include content(1.1em);
+        color: $text2;
+        padding: 30px 35px 20px 35px;
+    }
+    .popup-buttons .button{
+        border: none;
+        border-radius: 0;
+        color: $accentColour;
+        background-color: $bgColour;
+        text-align: right;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 0;
+        margin-left: 45px;
+        margin-right: 0;
+        &:last-child {
+            margin-left: 0 !important;
+            margin-right: 15px !important;
+        }
+    }
+}
+.aboutPopup{
+    h3.popup-title.ng-binding {
+        color: $text;
+        text-align: left;
+        padding: 30px 30px 0 33px;
+        font-size: 1.5em;
+    }
+    .popup p+p {
+        font-size: 0.9em;
+    }
+    .popup p+p+p+p{
+        margin-top: 60px;
+        margin-bottom: -20px;
+    }
+}
+.popup-container.favouritePopup.aboutPopup.popup-showing.active .popup {
+    width: 85%;
+}
+.popup-container.active .popup {
+    box-shadow: 0px 10px 20px 3px rgba(0,0,0,0.3);
+    background-color: $bgColour;
+}
+
 /////////////////////////////////////////////////
 //Help page//////////////////////////////////////////
 .helpPage {

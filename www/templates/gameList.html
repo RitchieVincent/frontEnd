@@ -1,10 +1,10 @@
 <ion-view view-title="Game list">
     <ion-content class="gameListPage">
             <div class="row gameCount">
-                <div class="col col-80 col-offset-10">
+                <div class="col col-100">
                     <ng-pluralize count="details.length" when="{'0': 'There are no games!',
                                                                'one': 'There is 1 game.',
-                                                               'other': 'There are {} games matching that name. Please choose the game you wish to view details for.'}">
+                                                               'other': 'There is more than one game that matches that name. Please choose the game you wish to view details for.'}">
                     </ng-pluralize>
                 </div>
             </div>
