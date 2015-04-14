@@ -1,4 +1,4 @@
-angular.module('rivv.controllers', [])
+angular.module('rivvu.controllers', [])
 
 .controller('mainController', function ($scope, $ionicPopup) {
     $scope.css = window.localStorage['theme'] || 'blueGreen';
@@ -7,7 +7,7 @@ angular.module('rivv.controllers', [])
         var alertPopup = $ionicPopup.alert({
             cssClass: 'favouritePopup aboutPopup',
             title: 'About',
-            template: '<p>Ritchie Vincent</p><p>ritchie@ritchievincent.co.uk</p><p>Created using the Ionic framework.</p><p>&#169; 2015</p>',
+            template: '<p>Ritchie Vincent</p><p>ritchie@ritchievincent.co.uk</p><p>Created using the Ionic framework.</p><p>Game ratings retrieved from IGN.</p><p>Movie ratings retrieved from IMDB, Metacritic & Rotten Tomatoes.</p><p>Rivvu &#169; 2015</p>',
             okType: 'waves-effect waves btn-flat'
         });
         alertPopup.then(function (res) {
@@ -301,237 +301,49 @@ angular.module('rivv.controllers', [])
     }
 })
 
-.controller('MapController', function ($scope, $ionicLoading, $compile) {
-
-    //    var map;
-    //    var infoWindow;
-    //    var service;
-    //
-    //    function initialize() {
-    //        map = new google.maps.Map(document.getElementById('map-canvas'), {
-    //            zoom: 14,
-    //            styles: [{
-    //                "featureType": "water",
-    //                "stylers": [{
-    //                    "visibility": "on"
-    //                }, {
-    //                    "color": "#b5cbe4"
-    //                }]
-    //            }, {
-    //                "featureType": "landscape",
-    //                "stylers": [{
-    //                    "color": "#efefef"
-    //                }]
-    //            }, {
-    //                "featureType": "road.highway",
-    //                "elementType": "geometry",
-    //                "stylers": [{
-    //                    "color": "#83a5b0"
-    //                }]
-    //            }, {
-    //                "featureType": "road.arterial",
-    //                "elementType": "geometry",
-    //                "stylers": [{
-    //                    "color": "#bdcdd3"
-    //                }]
-    //            }, {
-    //                "featureType": "road.local",
-    //                "elementType": "geometry",
-    //                "stylers": [{
-    //                    "color": "#ffffff"
-    //                }]
-    //            }, {
-    //                "featureType": "poi.park",
-    //                "elementType": "geometry",
-    //                "stylers": [{
-    //                    "color": "#e3eed3"
-    //                }]
-    //            }, {
-    //                "featureType": "administrative",
-    //                "stylers": [{
-    //                    "visibility": "on"
-    //                }, {
-    //                    "lightness": 33
-    //                }]
-    //            }, {
-    //                "featureType": "road"
-    //            }, {
-    //                "featureType": "poi.park",
-    //                "elementType": "labels",
-    //                "stylers": [{
-    //                    "visibility": "on"
-    //                }, {
-    //                    "lightness": 20
-    //                }]
-    //            }, {}, {
-    //                "featureType": "road",
-    //                "stylers": [{
-    //                    "lightness": 20
-    //                }]
-    //            }]
-    //        });
-    //    }
-    //
-    //        navigator.geolocation.getCurrentPosition(function (pos) {
-    //            map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-    //            var myLocation = new google.maps.Marker({
-    //                position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-    //                map: map,
-    //                title: "My Location"
-    //            });
-    //        });
-
-
-
-
-
-
-
-
-
+.controller('MapController', function ($scope, $ionicLoading, $compile, $window) {
     var map;
 
+
     function initialize() {
-        var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
+        var dummy = new google.maps.LatLng(-33.8665433, 151.1956316); //Sets dummy data
 
-        map = new google.maps.Map(document.getElementById('map-canvas'), {
-            center: pyrmont,
-            zoom: 17
+        map = new google.maps.Map(document.getElementById('map-canvas'), { //Sets up a map variable - Needed to search for places
+            center: dummy
         });
 
-        
-var myLocation;
+        if (typeof myLocation === 'undefined') { //If myLocation is undefined
+            navigator.geolocation.getCurrentPosition(function (pos) { //Finds your current geolocation
+                myLocation = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+                run(myLocation);
+            });
+        }
 
-        navigator.geolocation.getCurrentPosition(function (pos) {
-            map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-            myLocation = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-            console.log(myLocation);
-        });
-        console.log(myLocation);
-        
-        var request = {
-            location: pyrmont,
-            radius: 500,
-            keyword: 'video game'
-        };
+        function run(myLocation) {
+            var request = {
+                location: myLocation, //Sets the location to your current geolocated location
+                radius: 1000, //Sets the radius to 1000 metres
+                keyword: 'game' //Searches Google Places API for nearby places with the keyword "game"
+            };
 
-        var service = new google.maps.places.PlacesService(map);
-        service.nearbySearch(request, callback);
+            var service = new google.maps.places.PlacesService(map);
+            service.nearbySearch(request, callback);
+        }
+
+
     }
 
-    function callback(results, status, pagination) {
+    function callback(results, status) {
         if (status != google.maps.places.PlacesServiceStatus.OK) {
             return;
         } else {
-            for (var i = 0, place; place = results[i]; i++){
-                console.log(place.name);
+            for (var i = 0, place; place = results[i]; i++) { //Outputs all the local places
+                $scope.$apply(function () { //Updates the scope so the new values are displayed
+                    $scope.results = results;
+                });
             }
         }
     }
 
-
-
-
-
-
-
-
-
-
-    setTimeout(function () {
-        initialize();
-    }, 1000);
-
-
+    initialize();
 })
-
-.service('task', function task($http, $q, $ionicLoading) {
-    var task = this;
-    task.details = {};
-
-    task.getScore = function (search) {
-        var defer = $q.defer();
-
-        $http.get('https://videogamesrating.p.mashape.com/get.php?count=10&game=' + search + '', {
-            headers: {
-                'X-Mashape-Authorization': 'H4ldhpG7ZgmshKoX1vWY188hF2fnp1yCl3yjsngteXB6yw6uOH'
-            },
-            res: {}
-        }).success(function (res) {
-            $ionicLoading.hide()
-            task.details = res;
-            defer.resolve(res);
-        }).error(function (err, status) {
-            defer.reject(err);
-        })
-        return defer.promise;
-
-    }
-})
-
-.service('task2', function task2($http, $q, $ionicLoading) {
-    var task2 = this;
-    task2.details = {};
-
-    task2.getScore2 = function (search2) {
-        var defer = $q.defer();
-
-        $http.get('http://www.omdbapi.com/?y=&r=json&type=movie&s=' + search2 + '', {
-            res: {}
-        }).success(function (res) {
-            $ionicLoading.hide()
-            resSearch = res;
-            task2.details = resSearch.Search;
-            defer.resolve(res);
-        }).error(function (err, status) {
-            defer.reject(err);
-        })
-        return defer.promise;
-
-    }
-})
-
-.service('task3', function task3($http, $q, $ionicLoading) {
-    var task3 = this;
-    task3.details = {};
-
-    task3.getScore3 = function (imdbID) {
-        var defer = $q.defer();
-
-        $http.get('http://www.omdbapi.com/?plot=short&r=json&tomatoes=true&i=' + imdbID + '', {
-            res: {}
-        }).success(function (res) {
-            $ionicLoading.hide()
-            task3.details = res;
-            defer.resolve(res);
-        }).error(function (err, status) {
-            defer.reject(err);
-        })
-        return defer.promise;
-
-    }
-})
-
-//.service('favouriteGame', function task($http, $q, $ionicLoading) {
-//    var task = this;
-//    task.details = {};
-//
-//    task.getScore = function (search) {
-//        var defer = $q.defer();
-//
-//        $http.get('https://videogamesrating.p.mashape.com/get.php?count=10&game=' + search + '', {
-//            headers: {
-//                'X-Mashape-Authorization': 'H4ldhpG7ZgmshKoX1vWY188hF2fnp1yCl3yjsngteXB6yw6uOH'
-//            },
-//            res: {}
-//        }).success(function (res) {
-//            $ionicLoading.hide()
-//            task.details = res;
-//            defer.resolve(res);
-//        }).error(function (err, status) {
-//            defer.reject(err);
-//        })
-//        return defer.promise;
-//
-//    }
-//})

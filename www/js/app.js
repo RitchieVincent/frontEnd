@@ -1,4 +1,4 @@
-angular.module('rivv', ['ionic', 'rivv.controllers', 'ui.router', 'angular-progress-arc', 'ngCordova'])
+angular.module('rivvu', ['ionic', 'rivvu.controllers', 'rivvu.services', 'ui.router', 'angular-progress-arc', 'ngCordova'])
     .run(function ($ionicPlatform, $cordovaStatusbar) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard

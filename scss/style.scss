@@ -81,6 +81,7 @@ ion-content {
 .readMoreSection {
     opacity: 1;
     padding: 40px;
+    padding-bottom: 0;
     background: $bgColour;
     p {
         @include content(1em);
@@ -89,11 +90,10 @@ ion-content {
         color: $accentColour;
     }
 }
-
-#map-canvas {
-    width: 100%;
-    height: 300px;
+.mapList {
+    padding: 0 20px 0 20px;
 }
+
 
 ///////////////////////////////////////////////
 //Home page////////////////////////////////////
@@ -237,6 +237,14 @@ ion-content {
             margin-bottom: 0;
             height: 15vh;
         }
+        .list{
+            h2{
+                color: $accentColour;
+            }
+            p{
+                font-size: 0.8em;
+            }
+        }
     }
     .gameDetailsImg {
         width: 100vw;
@@ -283,7 +291,7 @@ ion-content {
     padding-top: 0;
     .movieDetailsContents {
         position: relative;
-        top: -100px;
+        top: -120px;
         p {
             @include content(1em);
         }
@@ -686,7 +694,7 @@ ion-content.scroll-content.ionic-scroll.has-header {
     .popup p+p {
         font-size: 0.9em;
     }
-    .popup p+p+p+p{
+    .popup p+p+p+p+p+p{
         margin-top: 60px;
         margin-bottom: -20px;
     }

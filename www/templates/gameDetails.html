@@ -1,7 +1,7 @@
 <ion-view view-title="Game details">
     <ion-content class="gameDetailsPage">
         <div class="gameDetailsImg">
-            <img src="{{gameDetails.thumb}}" >
+            <img src="{{gameDetails.thumb}}">
         </div>
         <div class="gameDetailsContents">
             <div class="row gameDetailsScore">
@@ -13,12 +13,11 @@
                         <p>/10</p>
                     </div>
                 </div>
-                
             </div>
             <div class="row gameTitle">
                 <div class="col col-80 col-offset-10">
                     <h1>{{gameDetails.title}}</h1>
-                    <button class="btn waves-effect waves-light" type="submit" ng-click="saveFavourite()" >
+                    <button class="btn waves-effect waves-light" type="submit" ng-click="saveFavourite()">
                         Favourite
                         <i class="ion-android-star"></i>
                     </button>
@@ -32,13 +31,15 @@
                 <div class="gameListPlatforms" ng-repeat="platform in gameDetails.platforms">
                     <p> {{platform}}{{$last ? '' : ', '}}</p>
                 </div>
-                <div ng-controller="MapController">
-                    <div id="map-canvas" data-tap-disabled="true"></div>
-                    <div id="results">
-                        <h2>Results</h2>
-                        <ul id="places"></ul>
-                        <button id="more">More results</button>
-                    </div>
+                <p>Below are some local establishments that may sell this game</p>
+            </div>
+            <div ng-controller="MapController" class="mapList">
+                <div id="map-canvas" class="hide"></div>
+                <div class="list">
+                    <span class="item" ng-repeat="store in results">
+                        <h2>{{store.name}}</h2>
+                        <p>{{store.vicinity}}</p>
+                    </span>
                 </div>
             </div>
         </div>
