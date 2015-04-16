@@ -30,7 +30,7 @@ angular.module('rivvu', ['ionic', 'rivvu.controllers', 'rivvu.services', 'ui.rou
         views: {
             'menuContent': {
                 templateUrl: "templates/home.html",
-                controller: 'homeForm'
+                controller: 'homeController'
             }
         }
     })

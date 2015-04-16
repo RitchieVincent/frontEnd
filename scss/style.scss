@@ -547,6 +547,11 @@ ion-content.scroll-content.ionic-scroll.has-header {
         border: none;
     }
 }
+.movieListPage{
+    h3{
+        padding-top: 60px;
+    }
+}
 
 .card {
     a {
@@ -697,6 +702,20 @@ ion-content.scroll-content.ionic-scroll.has-header {
     .popup p+p+p+p+p+p{
         margin-top: 60px;
         margin-bottom: -20px;
+    }
+}
+.moreDetailsPopup{
+    .moreTitle{
+        color: $accentColour;
+    }
+    .popup {
+        width: 90%;
+    }
+    h3.popup-title.ng-binding {
+        color: $text;
+        text-align: center;
+        padding: 30px 30px 0 33px;
+        font-size: 1.5em;
     }
 }
 .popup-container.favouritePopup.aboutPopup.popup-showing.active .popup {

@@ -1,6 +1,6 @@
 <ion-view view-title="Movie list">
     <ion-content class="movieListPage">
-            <div class="row movieCount">
+        <div class="row movieCount" ng-hide="!details.length">
                 <div class="col col-80 col-offset-10">
                     <ng-pluralize count="details.length" when="{'0': 'There are no movies matching that name!',
                                                                'one': 'There is 1 match!',
@@ -8,10 +8,11 @@
                     </ng-pluralize>
                 </div>
             </div>
+        <h3 ng-show="!details.length">No results found!</h3>
             <ion-list>
                 <ion-item ng-repeat="movie in details">
                     <div class="list">
-                        <a class="item waves-effect waves" href="#" ng-click="test(movie.imdbID)">
+                        <a class="item waves-effect waves" href="#" ng-click="view(movie.imdbID)">
                             <h2><span class="listTitle">{{movie.Title}}</span></h2>
                             <p>{{movie.Year}}</p>
                         </a>

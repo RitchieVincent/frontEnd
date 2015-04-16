@@ -7,7 +7,7 @@ angular.module('rivvu.services', [])
     task.getScore = function (search) {
         var defer = $q.defer();
 
-        $http.get('https://videogamesrating.p.mashape.com/get.php?count=10&game=' + search + '', {
+        $http.get('https://videogamesrating.p.mashape.com/get.php?count=20&game=' + search + '', {
             headers: {
                 'X-Mashape-Authorization': 'H4ldhpG7ZgmshKoX1vWY188hF2fnp1yCl3yjsngteXB6yw6uOH'
             },
@@ -20,7 +20,6 @@ angular.module('rivvu.services', [])
             defer.reject(err);
         })
         return defer.promise;
-
     }
 })
 

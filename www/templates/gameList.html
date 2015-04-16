@@ -11,7 +11,7 @@
             <ion-list>
                 <ion-item ng-repeat="game in details" ng-if="game.score > 0">
                     <div class="list">
-                        <a class="item item-thumbnail-left waves-effect waves" href="#" ng-click="test({{$index}})">
+                        <a class="item item-thumbnail-left waves-effect waves" href="#" ng-click="view({{$index}})">
                             <img src="{{game.thumb}}">
                             <h2><span class="listTitle">{{game.title}}</span></h2>
                             <p>Publisher: {{game.publisher}}</p>

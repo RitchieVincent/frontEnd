@@ -6,9 +6,9 @@
                     <div class="item item-divider item-icon-right">
                         <i class="icon ion-ios-game-controller-b favSecIcon"></i> Games
                     </div>
-                    <span class="item item-thumbnail-left" ng-repeat="gameFavourite in gameFavourites">
+                    <span class="item item-thumbnail-left waves-effect waves" ng-repeat="gameFavourite in gameFavourites" ng-click="moreGameDetails(gameFavourite)">
                         <img src="{{gameFavourite.gameImage}}" alt="" class="circle">
-                        <i class="icon ion-android-delete item-icon-right favDelete waves-effect waves-circle waves" ng-model="gameFavourite.gameImage" ng-click="deleteGame(gameFavourite.gameImage)"></i>
+                        <i class="icon ion-android-delete item-icon-right favDelete waves-effect waves-circle waves" ng-model="gameFavourite.gameImage" ng-click="deleteGame(gameFavourite.gameImage); $event.stopPropagation();"></i>
                         <h2>{{gameFavourite.gameTitle}}</h2>
                         <p>Rating: {{gameFavourite.gameScore}}</p>
                     </span>
@@ -19,9 +19,9 @@
                     <div class="item item-divider item-icon-right">
                         <i class="icon ion-android-film favSecIcon"></i> Movies
                     </div>
-                    <span class="item item-thumbnail-left" ng-repeat="movieFavourite in movieFavourites">
+                    <span class="item item-thumbnail-left waves-effect waves" ng-repeat="movieFavourite in movieFavourites" ng-click="moreMovieDetails(movieFavourite)">
                         <img src="{{movieFavourite.movieImage}}" alt="" class="circle">
-                        <i class="icon ion-android-delete item-icon-right favDelete waves-effect waves-circle waves" ng-model="movieFavourite.movieImage" ng-click="deleteMovie(movieFavourite.movieImage)"></i>
+                        <i class="icon ion-android-delete item-icon-right favDelete waves-effect waves-circle waves" ng-model="movieFavourite.movieImage" ng-click="deleteMovie(movieFavourite.movieImage); $event.stopPropagation();"></i>
                         <h2>{{movieFavourite.movieTitle}}</h2>
                         <p>Rating: {{movieFavourite.movieScore | number:1}}</p>
                     </span>
