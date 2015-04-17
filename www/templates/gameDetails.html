@@ -31,7 +31,7 @@
                 <div class="gameListPlatforms" ng-repeat="platform in gameDetails.platforms">
                     <p> {{platform}}{{$last ? '' : ', '}}</p>
                 </div>
-                <p>Below are some local establishments that may sell this game</p>
+                <p>Below are some local establishments that may sell this game (Location must be enabled on device).</p>
             </div>
             <div ng-controller="MapController" class="mapList">
                 <div id="map-canvas" class="hide"></div>
