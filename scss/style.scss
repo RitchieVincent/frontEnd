@@ -64,12 +64,10 @@ ion-content {
 }
 
 .btn:disabled {
-    background-color: $accentColour2;
-    color: $accentColour2;
-    &:hover {
-        background-color: $accentColour2;
-        color: $accentColour2;
-    }
+    background-color: #DFDFDF;
+    box-shadow: none;
+    color: #9F9F9F;
+    cursor: default;
 }
 
 .spinner svg {
