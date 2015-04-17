@@ -17,10 +17,6 @@
             <div class="row gameTitle">
                 <div class="col col-80 col-offset-10">
                     <h1>{{gameDetails.title}}</h1>
-                    <button class="btn waves-effect waves-light" type="submit" ng-click="saveFavourite()">
-                        Favourite
-                        <i class="ion-android-star"></i>
-                    </button>
                 </div>
             </div>
 
@@ -31,6 +27,10 @@
                 <div class="gameListPlatforms" ng-repeat="platform in gameDetails.platforms">
                     <p> {{platform}}{{$last ? '' : ', '}}</p>
                 </div>
+                <button class="btn waves-effect waves-light" type="submit" ng-click="saveFavourite()">
+                    Favourite
+                    <i class="ion-android-star"></i>
+                </button>
                 <p>Below are some local establishments that may sell this game (Location must be enabled on device).</p>
             </div>
             <div ng-controller="MapController" class="mapList">

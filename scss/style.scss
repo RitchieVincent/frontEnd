@@ -87,6 +87,10 @@ ion-content {
     .readMoreTitle {
         color: $accentColour;
     }
+    .btn{
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
 }
 .mapList {
     padding: 0 20px 0 20px;
@@ -302,6 +306,9 @@ ion-content {
                 font-weight: 400;
             }
         }
+        .btn{
+            margin-top: 40px;
+        }
         .movieRatings {
             padding: 40px;
             background-color: $primary;
@@ -339,7 +346,7 @@ ion-content {
     .scoreValue {
         h2 {
             color: $accentColour2;
-            @include headers(4em);
+            @include headers(3em);
             margin: 0;
         }
         p {
@@ -733,11 +740,15 @@ ion-content.scroll-content.ionic-scroll.has-header {
         p {
             @include content(1em);
         }
-        p + p + p {
+        p:last-child{
             margin-top: 60px;
             color: $accentColour;
             text-align: center;
+            font-size: 1.8em;
+        }
+        h2{
             font-size: 1.5em;
+            color: $accentColour;
         }
     }
 }

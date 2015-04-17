@@ -74,7 +74,7 @@ angular.module('rivvu.controllers', [])
                         gameFavourites.splice(i, 1); //Remove it from the local storage array
                     }
                 }
-                $scope.showToast('Game removed from favourites.', 'long', 'center'); //Calls a toast message, informing the user the game has been deleted
+                $scope.showToast('Game deleted from favourites.', 'long', 'center'); //Calls a toast message, informing the user the game has been deleted
                 localStorage.gameFavourites = JSON.stringify(gameFavourites); //Store the new favourites list (Minus the deleted game) in the local storage
                 $window.location.reload(true); //Refreshes the page to display the updated favourites list
             } else {
@@ -102,7 +102,7 @@ angular.module('rivvu.controllers', [])
                         movieFavourites.splice(i, 1);
                     }
                 }
-                $scope.showToast('Movie removed from favourites.', 'long', 'center');
+                $scope.showToast('Movie deleted from favourites.', 'long', 'center');
                 localStorage.movieFavourites = JSON.stringify(movieFavourites);
                 $window.location.reload(true);
             } else {
