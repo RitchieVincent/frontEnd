@@ -7,6 +7,7 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 var karma = require('karma').server;
+var uglify = require('gulp-uglify');
 
 var paths = {
     sass: ['./scss/**/*.scss']
@@ -121,6 +122,9 @@ gulp.task('install', ['git-check'], function () {
             gutil.log('bower', gutil.colors.cyan(data.id), data.message);
         });
 });
+
+
+
 
 
 
